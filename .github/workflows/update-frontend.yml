@@ -1,0 +1,27 @@
+name: Prod Frontend Update
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Frontend Update
+    runs-on: ubuntu-22.04
+    steps:
+      - name: SSH to server & execute commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_PROD_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          script_stop: true
+          port: 22
+          script: |
+            cd /var/www/ukmexpo-frontend
+            git pull origin main
+            yarn install
+            pm2 delete frontend
+            yarn build
+            yarn deploy
