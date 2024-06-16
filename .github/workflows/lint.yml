@@ -9,6 +9,7 @@ on:
 
 jobs:
   lint:
+    permissions: write-all
     name: ⬣ ESLint
     runs-on: ubuntu-latest
     steps:
@@ -21,7 +22,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 18
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
@@ -30,6 +31,7 @@ jobs:
         run: yarn lint:strict
 
   typecheck:
+    permissions: write-all
     name: ʦ TypeScript
     runs-on: ubuntu-latest
     steps:
@@ -42,7 +44,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 18
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
@@ -51,6 +53,7 @@ jobs:
         run: yarn typecheck
 
   prettier:
+    permissions: write-all
     name: 💅 Prettier
     runs-on: ubuntu-latest
     steps:
@@ -63,7 +66,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 18
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
