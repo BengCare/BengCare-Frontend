@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { toast, ToastBar, Toaster, ToastOptions } from 'react-hot-toast';
-import { HiX } from 'react-icons/hi';
+import { toast, Toaster, ToastOptions } from 'react-hot-toast';
 import { RiErrorWarningLine } from 'react-icons/ri';
 
 export default function Toast() {

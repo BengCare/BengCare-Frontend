@@ -1,6 +1,7 @@
-import clsxm from '@/lib/clsxm';
 import Image from 'next/image';
-import React, { ReactNode } from 'react';
+import React from 'react';
+
+import clsxm from '@/lib/clsxm';
 
 const IconText: React.FC<{
   children: React.ReactNode;

@@ -1,6 +1,7 @@
-import clsxm from '@/lib/clsxm';
 import Image from 'next/image';
 import React, { InputHTMLAttributes } from 'react';
+
+import clsxm from '@/lib/clsxm';
 
 interface IconTextProps extends InputHTMLAttributes<HTMLInputElement> {
   id?: string;

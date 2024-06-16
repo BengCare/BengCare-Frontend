@@ -1,6 +1,7 @@
-import clsxm from '@/lib/clsxm';
 import React, { ButtonHTMLAttributes } from 'react';
 import { ImSpinner2 } from 'react-icons/im';
+
+import clsxm from '@/lib/clsxm';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;

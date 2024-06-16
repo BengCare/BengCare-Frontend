@@ -2,11 +2,12 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
-import NextTopLoader from 'nextjs-toploader';
 import Image from 'next/image';
+import NextTopLoader from 'nextjs-toploader';
+
 import IconText from '@/components/IconText';
-import Toast from '@/components/Toast';
 import Providers from '@/components/Providers';
+import Toast from '@/components/Toast';
 
 const poppins = Poppins({
   subsets: ['latin'],

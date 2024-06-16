@@ -1,13 +1,13 @@
 'use client';
 
+import { useMutation } from '@tanstack/react-query';
+import Image from 'next/image';
+import { FormProvider, useForm } from 'react-hook-form';
+
+import Button from '@/components/Button';
 import LogoInput from '@/components/LogoInput';
 import useMutationToast from '@/hooks/useMutationToast';
 import api from '@/lib/api';
-import Image from 'next/image';
-import { FormProvider, useForm } from 'react-hook-form';
-import { useMutation } from '@tanstack/react-query';
-import Button from '@/components/Button';
-import toast from 'react-hot-toast';
 
 interface EarlyAccess {
   email: string;
