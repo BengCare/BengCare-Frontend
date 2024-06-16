@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import { fontFamily } from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: [
@@ -18,14 +17,17 @@ const config: Config = {
       '2xl': '1536px',
     },
     extend: {
-      fontFamily: {
-        primary: ['var(--font-saoTorpes)', ...fontFamily.sans],
-        secondary: ['var(--font-poppins)', ...fontFamily.sans],
-      },
       colors: {
         white: {
-          DEFAULT: '#FCFAFF',
+          DEFAULT: '#FDFDFD',
         },
+        black: {
+          DEFAULT: '#111111',
+        },
+        primary:{
+          500: '#81A4DC',
+          700: "#415D9E",
+        }
       },
     },
     plugins: [require('@tailwindcss/forms')],
