@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-
 }
 
 body {
@@ -13,7 +12,7 @@ body {
   padding: 0;
 }
 
-.layout{
+.layout {
   width: 1240px;
   margin: 0 auto;
 }

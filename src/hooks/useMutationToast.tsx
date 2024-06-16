@@ -18,7 +18,7 @@ export default function useMutationToast<T, K>(
     AxiosError<ApiError>,
     K
   >,
-  customMessages: OptionType = {}
+  customMessages: OptionType = {},
 ) {
   const { data, isError, isPending, error } = mutation;
 
@@ -40,7 +40,7 @@ export default function useMutationToast<T, K>(
           : toastMessage.error(error),
         {
           id: toastStatus.current,
-        }
+        },
       );
       toastStatus.current = 'done';
     } else if (isPending) {
@@ -49,7 +49,7 @@ export default function useMutationToast<T, K>(
       toast.success(
         typeof toastMessage.success === 'string'
           ? toastMessage.success
-          : toastMessage.success(data.data)
+          : toastMessage.success(data.data),
       );
       toastStatus.current = 'done';
     }

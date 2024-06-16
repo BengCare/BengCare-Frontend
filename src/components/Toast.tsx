@@ -8,7 +8,7 @@ export default function Toast() {
     <div>
       <Toaster
         reverseOrder={false}
-        position="top-center"
+        position='top-center'
         toastOptions={{
           style: {
             borderRadius: '8px',
@@ -20,7 +20,6 @@ export default function Toast() {
     </div>
   );
 }
-
 
 const DEFAULT_TOAST: ToastOptions = {
   style: {

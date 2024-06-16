@@ -24,14 +24,14 @@ const config: Config = {
         black: {
           DEFAULT: '#111111',
         },
-        primary:{
+        primary: {
           500: '#81A4DC',
-          700: "#415D9E",
+          700: '#415D9E',
         },
         gray: {
-          200: "#C8C8C8",
-          300: "#AEAEAE"
-        }
+          200: '#C8C8C8',
+          300: '#AEAEAE',
+        },
       },
     },
     plugins: [require('@tailwindcss/forms')],
