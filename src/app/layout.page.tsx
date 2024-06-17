@@ -44,19 +44,26 @@ export default function RootLayout({
               width={200}
               className='object-contain'
             />
-            <div className='grid gap-8 grid-flow-col text-black font-medium'>
-              <Link href='/#'>BERANDA</Link>
-              <Link href='/#tentang-kami'>TENTANG KAMI</Link>
-              <Link href='/#faq'>FAQ</Link>
+            <div className='hidden sm:grid gap-8 grid-flow-col text-black font-medium'>
+              <Link href='/#' className='text-sm md:text-base'>BERANDA</Link>
+              <Link href='/#tentang-kami' className='text-sm md:text-base'>TENTANG KAMI</Link>
+              <Link href='/#faq' className='text-sm md:text-base'>FAQ</Link>
             </div>
           </div>
         </nav>
         <main className='min-h-screen text-black pt-[100px]'>
           <Providers>{children}</Providers>
         </main>
-        <footer className='h-[400px] bg-primary-700'>
-          <div className='layout grid grid-cols-2 py-[60px]'>
+        <footer className='md:h-[400px] bg-primary-700'>
+          <div className='layout grid md:grid-cols-2 py-[60px]'>
             <div className='grid gap-6'>
+              <Image
+                src='/logo-white-primary700.svg'
+                alt='logo'
+                height={62}
+                width={257}
+                className='object-contain md:hidden'
+              />
               <div className='grid gap-3'>
                 <p className='text-white font-medium'>Kontak Kami</p>
                 <IconText
@@ -66,7 +73,7 @@ export default function RootLayout({
                 >
                   <a
                     href='https://www.instagram.com/bengcare.id/'
-                    className='text-white font-semibold'
+                    className='text-white font-semibold text-sm md:text-base'
                   >
                     @bengcare.id
                   </a>
@@ -78,7 +85,7 @@ export default function RootLayout({
                 >
                   <a
                     href='mailto:admin@bengcare.com'
-                    className='text-white font-semibold'
+                    className='text-white font-semibold text-sm md:text-base'
                   >
                     admin@bengcare.com
                   </a>
@@ -88,7 +95,7 @@ export default function RootLayout({
                   iconHeight={40}
                   src='/footer/youtube.png'
                 >
-                  <a href='#' className='text-white font-semibold'>
+                  <a href='https://www.youtube.com/@bengcareid' className='text-white font-semibold text-sm md:text-base'>
                     @BengCareID
                   </a>
                 </IconText>
@@ -99,18 +106,21 @@ export default function RootLayout({
                   alt='download google play'
                   height={72}
                   width={209}
-                  className='cursor-pointer object-contain'
+                  className='cursor-pointer object-contain w-[140px] lg:w-[180px]'
                 />
                 <Image
                   src='/download-appstore.png'
                   alt='download app store'
                   height={72}
                   width={193}
-                  className='cursor-pointe object-contain'
+                  className='cursor-pointe object-contain w-[140px] lg:w-[180px]'
                 />
               </div>
+              <p className='text-white font-medium text-sm md:hidden'>
+                BengCare @ 2024. All rights reserved.
+              </p>
             </div>
-            <div className='flex justify-between flex-col items-end'>
+            <div className='hidden md:flex justify-between flex-col items-end'>
               <Image
                 src='/logo-white-primary700.svg'
                 alt='logo'

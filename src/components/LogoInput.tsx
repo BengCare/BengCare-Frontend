@@ -26,23 +26,23 @@ const IconText: React.FC<IconTextProps> = ({
   return (
     <div
       className={clsxm(
-        className,
         'flex items-center gap-[10px] border-2 rounded-lg border-gray-200',
+        className
       )}
     >
       <Image
         src={src}
         width={iconWidth}
         height={iconHeight}
-        className={clsxm(iconClassName, 'object-contain ml-[12px]')}
+        className={clsxm('object-contain ml-[12px]', iconClassName)}
         alt='input email icon'
       ></Image>
       <input
         {...inputProps}
         id={id}
         className={clsxm(
+          'pr-[12px] py-[10px] bg-transparent border-none ring-0 outline-none w-full',
           inputClassName,
-          'pr-[12px] py-[10px] bg-transparent border-none ring-0 outline-none',
         )}
       />
     </div>
