@@ -8,6 +8,9 @@ import NextTopLoader from 'nextjs-toploader';
 import IconText from '@/components/IconText';
 import Providers from '@/components/Providers';
 import Toast from '@/components/Toast';
+import Link from 'next/link';
+import React from 'react';
+import { } from 'next/navigation';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -19,18 +22,20 @@ export const metadata: Metadata = {
   description: 'BengCare, Connecting you to trusted automotive services!',
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
-    <html lang='en'>
+    <html lang='en' style={{ scrollBehavior: 'smooth' }}>
       <link rel='icon' href='/favicon.ico' sizes='any' />
       <body className={poppins.className}>
         <NextTopLoader />
         <Toast />
-        <nav className='bg-white h-[100px] shadow-sm'>
+        <nav className='fixed top-0 w-full bg-white h-[100px] shadow-sm z-50'>
           <div className='layout flex items-center h-full justify-between'>
             <Image
               src='/logo-primary500-white.svg'
@@ -40,13 +45,13 @@ export default function RootLayout({
               className='object-contain'
             />
             <div className='grid gap-8 grid-flow-col text-black font-medium'>
-              <a href='/#'>BERANDA</a>
-              <a href='/#tentang-kami'>TENTANG KAMI</a>
-              <a href='/#faq'>FAQ</a>
+              <Link href='/#'>BERANDA</Link>
+              <Link href='/#tentang-kami'>TENTANG KAMI</Link>
+              <Link href='/#faq'>FAQ</Link>
             </div>
           </div>
         </nav>
-        <main className='layout min-h-screen'>
+        <main className='min-h-screen text-black pt-[100px]'>
           <Providers>{children}</Providers>
         </main>
         <footer className='h-[400px] bg-primary-700'>

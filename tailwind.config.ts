@@ -25,12 +25,15 @@ const config: Config = {
           DEFAULT: '#111111',
         },
         primary: {
+          100: "#E8F3FD",
           500: '#81A4DC',
           700: '#415D9E',
+          800: "#29407F"
         },
         gray: {
           200: '#C8C8C8',
           300: '#AEAEAE',
+          400: "#949494"
         },
       },
     },
