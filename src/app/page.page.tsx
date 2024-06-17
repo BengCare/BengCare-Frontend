@@ -59,7 +59,7 @@ export default function Home() {
             </p>
             <FormProvider {...methods}>
               <form
-                className='flex gap-[20px] w-full'
+                className='flex gap-[6px] sm:gap-[12px] md:gap-[20px] w-full'
                 onSubmit={handleSubmit((data: EarlyAccess) => mutate(data))}
               >
                 <LogoInput
@@ -70,10 +70,9 @@ export default function Home() {
                   id='email'
                   name='email'
                   placeholder='Masukkan email anda'
-                  inputClassName='py-[6px] pr-[10px] lg:py-[8px] lg:pr-[12px] text-xs lg:text-base'
-                  iconClassName='w-[14px] lg:w-[16px]'
+                  inputClassName='text-xs lg:text-base'
                 />
-                <Button isPending={isPending} type='submit' className='text-sm lg:text-base py-[6px] px-[12px] lg:py-[8px] lg:px-[16px]'>
+                <Button isPending={isPending} type='submit' className='text-sm lg:text-base'>
                   GABUNG
                 </Button>
               </form>
