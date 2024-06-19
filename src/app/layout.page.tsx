@@ -100,20 +100,20 @@ export default function RootLayout({
                   </a>
                 </IconText>
               </div>
-              <div className='flex gap-[18px]'>
+              <div className='flex gap-[12px] sm:gap-[0px] md:gap-[12px] lg:gap-[18px]'>
                 <Image
                   src='/download-googleplay.png'
                   alt='download google play'
                   height={72}
                   width={209}
-                  className='cursor-pointer object-contain w-[140px] lg:w-[180px]'
+                  className='cursor-pointer object-contain h-[60px] lg:h-[70px] object-left'
                 />
                 <Image
                   src='/download-appstore.png'
                   alt='download app store'
                   height={72}
                   width={193}
-                  className='cursor-pointe object-contain w-[140px] lg:w-[180px]'
+                  className='cursor-pointe object-contain h-[60px] lg:h-[70px] object-left'
                 />
               </div>
               <p className='text-white font-medium text-sm md:hidden'>

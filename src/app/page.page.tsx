@@ -70,7 +70,8 @@ export default function Home() {
                   id='email'
                   name='email'
                   placeholder='Masukkan email anda'
-                  inputClassName='text-xs lg:text-base'
+                  inputClassName='text-xs lg:text-base focus:bg-transparent active:bg-transparent'
+                  required
                 />
                 <Button isPending={isPending} type='submit' className='text-sm lg:text-base'>
                   GABUNG
@@ -79,20 +80,20 @@ export default function Home() {
             </FormProvider>
             <div className='h-[72px]'></div>
             <div className='absolute bottom-0'>
-              <div className='flex flex-row lg:flex-row md:flex-col gap-[18px] w-[140px] lg:w-[180px]'>
+              <div className='flex flex-row lg:flex-row md:flex-col gap-[10px] sm:gap-[18px]'>
                 <Image
                   src='/download-googleplay.png'
                   alt='download google play'
                   height={72}
                   width={209}
-                  className='cursor-pointer object-contain'
+                  className='cursor-pointer object-contain w-fit h-[50px] lg:h-full object-left-bottom'
                 />
                 <Image
                   src='/download-appstore.png'
                   alt='download app store'
                   height={72}
                   width={193}
-                  className='cursor-pointer object-contain'
+                  className='cursor-pointer object-contain w-fit h-[50px] lg:h-full object-left-bottom'
                 />
               </div>
             </div>
