@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import React, { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, forwardRef } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-interface IconTextProps extends InputHTMLAttributes<HTMLInputElement> {
+type IconTextProps = InputHTMLAttributes<HTMLInputElement> & {
   id?: string;
   iconWidth: number;
   iconHeight: number;
@@ -13,7 +13,7 @@ interface IconTextProps extends InputHTMLAttributes<HTMLInputElement> {
   src: string;
 }
 
-const IconText: React.FC<IconTextProps> = ({
+const IconText = forwardRef<HTMLInputElement, IconTextProps>(({
   id,
   iconWidth,
   iconHeight,
@@ -22,7 +22,7 @@ const IconText: React.FC<IconTextProps> = ({
   inputClassName,
   src,
   ...inputProps
-}) => {
+}, ref) => {
   return (
     <div
       className={clsxm(
@@ -36,10 +36,11 @@ const IconText: React.FC<IconTextProps> = ({
         height={iconHeight}
         className={clsxm('object-contain ml-[12px]', iconClassName)}
         alt='input email icon'
-      ></Image>
+      />
       <input
         {...inputProps}
         id={id}
+        ref={ref}
         className={clsxm(
           'pr-[12px] py-[10px] bg-transparent border-none ring-0 outline-none w-full',
           inputClassName,
@@ -47,6 +48,8 @@ const IconText: React.FC<IconTextProps> = ({
       />
     </div>
   );
-};
+});
+
+IconText.displayName = 'IconText';
 
 export default IconText;
