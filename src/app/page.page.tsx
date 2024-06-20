@@ -4,11 +4,11 @@ import { useMutation } from '@tanstack/react-query';
 import Image from 'next/image';
 import { FormProvider, useForm } from 'react-hook-form';
 
+import Accordion from '@/components/Accordion';
 import Button from '@/components/Button';
 import LogoInput from '@/components/LogoInput';
 import useMutationToast from '@/hooks/useMutationToast';
 import api from '@/lib/api';
-import Accordion from '@/components/Accordion';
 
 interface EarlyAccess {
   email: string;
