@@ -207,34 +207,22 @@ export default function Home() {
         </h1>
         <Accordion title='Bagaimana cara menemukan bengkel terbaik di BengCare?'>
           <p className='text-sm text-gray-400'>
-            Anda dapat menggunakan fitur pencarian dan filter di BengCare untuk
-            menemukan bengkel yang telah direkomendasikan oleh pengguna lain.
-            Cukup masukkan lokasi dan jenis layanan yang Anda butuhkan, dan kami
-            akan menunjukkan daftar bengkel terbaik di area Anda.
+            Anda dapat menemukan bengkel terbaik di BengCare dengan menggunakan fitur rekomendasi kami yang terdapat di Home Page, terdapat 2 rekomendasi yang akan membantu Anda, rekomendasi berdasarkan kendaraan Anda dan rekomendasi berdasarkan lokasi Anda. Aplikasi BengCare dilengkapi dengan AI untuk merekomendasikan bengkel-bengkel terpercaya berdasarkan lokasi Anda dan ulasan dari pengguna lainnya.
           </p>
         </Accordion>
         <Accordion title='Apakah saya bisa memilih jadwal layanan sesuai keinginan saya?'>
           <p className='text-sm text-gray-400'>
-            Anda dapat menggunakan fitur pencarian dan filter di BengCare untuk
-            menemukan bengkel yang telah direkomendasikan oleh pengguna lain.
-            Cukup masukkan lokasi dan jenis layanan yang Anda butuhkan, dan kami
-            akan menunjukkan daftar bengkel terbaik di area Anda.
+            Benar, Anda dapat memilih jadwal layanan sesuai keinginan Anda melalui aplikasi BengCare. Anda dapat  memilih layanan yang Anda butuhkan dan bengkel yang diinginkan, Anda dapat memilih tanggal dan waktu yang tersedia yang sesuai dengan jadwal Anda, setelah Anda berkonsultasi dengan Unkel (Chatbot BengCare) atau mendeskripsikan masalah kendaraan Anda secara manual.
           </p>
         </Accordion>
         <Accordion title='Bagaimana saya tahu bahwa bengkel yang terdaftar di BengCare terpercaya?'>
           <p className='text-sm text-gray-400'>
-            Anda dapat menggunakan fitur pencarian dan filter di BengCare untuk
-            menemukan bengkel yang telah direkomendasikan oleh pengguna lain.
-            Cukup masukkan lokasi dan jenis layanan yang Anda butuhkan, dan kami
-            akan menunjukkan daftar bengkel terbaik di area Anda.
+            BengCare melakukan proses verifikasi yang ketat terhadap setiap bengkel yang terdaftar di platform kami. Kami menilai kualitas layanan, kepuasan pelanggan, dan transparansi biaya untuk memastikan bahwa bengkel yang terdaftar adalah yang terbaik di kelasnya.
           </p>
         </Accordion>
         <Accordion title='Apakah saya bisa membatalkan jadwal layanan?'>
           <p className='text-sm text-gray-400'>
-            Anda dapat menggunakan fitur pencarian dan filter di BengCare untuk
-            menemukan bengkel yang telah direkomendasikan oleh pengguna lain.
-            Cukup masukkan lokasi dan jenis layanan yang Anda butuhkan, dan kami
-            akan menunjukkan daftar bengkel terbaik di area Anda.
+            Anda bisa membatalkan jadwal layanan melalui aplikasi BengCare dengan menekan tombol Riwayat, lalu Menuggu konfirmasi atau diproses. Anda dapat melakukan pembatalan dengan mudah melalui menu pemesanan di aplikasi, dan pastikan untuk memberitahukan bengkel terkait secepat mungkin jika ada perubahan jadwal.
           </p>
         </Accordion>
       </div>
