@@ -113,7 +113,7 @@ export default function RootLayout({
                   alt='download app store'
                   height={72}
                   width={193}
-                  className='cursor-pointe object-contain h-[60px] lg:h-[70px] object-left'
+                  className='cursor-pointer object-contain h-[60px] lg:h-[70px] object-left'
                 />
               </div>
               <p className='text-white font-medium text-sm md:hidden'>

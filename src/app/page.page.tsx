@@ -33,8 +33,8 @@ export default function Home() {
       <title>Homepage | BengCare</title>
       <div className='layout'>
         <div className='mt-[60px] flex gap-[20px]'>
-          <div className='relative flex justify-center flex-col gap-[16px] md:gap-[32px] xl:gap-[24px]'>
-            <h1 className='text-4xl leading-normal lg:text-5xl xl:leading-[1.5] font-semibold md:border-b-2 md:pb-[20px]'>
+          <div className='relative flex justify-center flex-col gap-[16px] md:gap-[10px] lg:gap-[24px] xl:gap-[24px]'>
+            <h1 className='text-4xl leading-tight md:leading-normal lg:text-5xl lg:leading-normal font-semibold md:border-b-2 md:pb-[20px]'>
               SOLUSI PENCARIAN{' '}
               <span className='font-bold text-primary-700 '>BENGKEL TERBAIK</span>{' '}
               DI GENGGAMAN ANDA
@@ -80,20 +80,20 @@ export default function Home() {
             </FormProvider>
             <div className='h-[72px]'></div>
             <div className='absolute bottom-0'>
-              <div className='flex flex-row lg:flex-row md:flex-col gap-[10px] sm:gap-[18px]'>
+              <div className='flex flex-row gap-[10px] sm:gap-[18px]'>
                 <Image
                   src='/download-googleplay.png'
                   alt='download google play'
                   height={72}
                   width={209}
-                  className='cursor-pointer object-contain w-fit h-[50px] lg:h-full object-left-bottom'
+                  className='cursor-pointer object-contain w-fit h-[50px] lg:h-[70px] object-left-bottom'
                 />
                 <Image
                   src='/download-appstore.png'
                   alt='download app store'
-                  height={72}
+                  height={60}
                   width={193}
-                  className='cursor-pointer object-contain w-fit h-[50px] lg:h-full object-left-bottom'
+                  className='cursor-pointer object-contain w-fit h-[50px] lg:h-[70px] object-left-bottom'
                 />
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function Home() {
             alt='logo'
             height={804}
             width={60}
-            className='object-contain hidden md:block w-[50px] lg:w-auto'
+            className='object-contain hidden md:block h-[432px] lg:h-[560px] xl:h-[804px]'
           />
           <Image
             src='/homepage/hero-image.png'
