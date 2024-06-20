@@ -12,6 +12,7 @@ import Accordion from '@/components/Accordion';
 
 interface EarlyAccess {
   email: string;
+  files: string;
 }
 export default function Home() {
   const methods = useForm<EarlyAccess>();
@@ -19,7 +20,7 @@ export default function Home() {
 
   const { mutate, isPending } = useMutationToast<void, EarlyAccess>(
     useMutation({
-      mutationFn: (data: EarlyAccess) => api.post('/early-access', data),
+      mutationFn: (data: EarlyAccess) => api.post('/user/send_to_mail', data),
     }),
     {
       loading: 'Mendaftar...',
@@ -27,6 +28,11 @@ export default function Home() {
       error: 'Terjadi kesalahan. Coba lagi nanti.',
     },
   );
+
+  const onSubmit = (data: EarlyAccess) => {
+    data.files = 'send_mail_web';
+    mutate(data);
+  }
 
   return (
     <main>
@@ -60,9 +66,10 @@ export default function Home() {
             <FormProvider {...methods}>
               <form
                 className='flex gap-[6px] sm:gap-[12px] md:gap-[20px] w-full'
-                onSubmit={handleSubmit((data: EarlyAccess) => mutate(data))}
+                onSubmit={handleSubmit(onSubmit)}
               >
                 <LogoInput
+                  {...methods.register('email', { required: 'Email is required' })}
                   className='w-full gap-[6px] lg:gap-[10px]'
                   src='/homepage/email-input.png'
                   iconWidth={18}
