@@ -102,14 +102,14 @@ export default function RootLayout({
               </div>
               <div className='flex flex-col md:flex-row gap-[12px] lg:gap-[18px]'>
                 <Image
-                  src='/download-googleplay.png'
+                  src='/download-googleplay.svg'
                   alt='download google play'
                   height={72}
                   width={209}
                   className='cursor-pointer object-contain h-[60px] lg:h-[70px] object-left'
                 />
                 <Image
-                  src='/download-appstore.png'
+                  src='/download-appstore.svg'
                   alt='download app store'
                   height={72}
                   width={193}

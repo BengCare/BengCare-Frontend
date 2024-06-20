@@ -82,14 +82,14 @@ export default function Home() {
             <div className='absolute bottom-0'>
               <div className='flex flex-row gap-[10px] sm:gap-[18px]'>
                 <Image
-                  src='/download-googleplay.png'
+                  src='/download-googleplay.svg'
                   alt='download google play'
                   height={72}
                   width={209}
                   className='cursor-pointer object-contain w-fit h-[50px] lg:h-[70px] object-left-bottom'
                 />
                 <Image
-                  src='/download-appstore.png'
+                  src='/download-appstore.svg'
                   alt='download app store'
                   height={60}
                   width={193}
@@ -111,6 +111,7 @@ export default function Home() {
             height={652}
             width={438}
             className='object-contain hidden md:block w-1/2 lg:w-full'
+            priority
           />
         </div>
       </div>
