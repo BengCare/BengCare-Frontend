@@ -10,7 +10,7 @@ import Providers from '@/components/Providers';
 import Toast from '@/components/Toast';
 import Link from 'next/link';
 import React from 'react';
-import { } from 'next/navigation';
+import {} from 'next/navigation';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -22,13 +22,11 @@ export const metadata: Metadata = {
   description: 'BengCare, Connecting you to trusted automotive services!',
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang='en' style={{ scrollBehavior: 'smooth' }}>
       <link rel='icon' href='/favicon.ico' sizes='any' />
@@ -45,9 +43,15 @@ export default function RootLayout({
               className='object-contain'
             />
             <div className='hidden sm:grid gap-8 grid-flow-col text-black font-medium'>
-              <Link href='/#' className='text-sm md:text-base'>BERANDA</Link>
-              <Link href='/#tentang-kami' className='text-sm md:text-base'>TENTANG KAMI</Link>
-              <Link href='/#faq' className='text-sm md:text-base'>FAQ</Link>
+              <Link href='/#' className='text-sm md:text-base'>
+                BERANDA
+              </Link>
+              <Link href='/#tentang-kami' className='text-sm md:text-base'>
+                TENTANG KAMI
+              </Link>
+              <Link href='/#faq' className='text-sm md:text-base'>
+                FAQ
+              </Link>
             </div>
           </div>
         </nav>
@@ -95,7 +99,10 @@ export default function RootLayout({
                   iconHeight={40}
                   src='/footer/youtube.png'
                 >
-                  <a href='https://www.youtube.com/@bengcareid' className='text-white font-semibold text-sm md:text-base'>
+                  <a
+                    href='https://www.youtube.com/@bengcareid'
+                    className='text-white font-semibold text-sm md:text-base'
+                  >
                     @BengCareID
                   </a>
                 </IconText>

@@ -19,31 +19,31 @@ body {
   padding-right: 10px;
 }
 
-@media (max-width: 1240px) { 
+@media (max-width: 1240px) {
   .layout {
     width: 1004px;
   }
 }
 
-@media (max-width: 1024px) { 
+@media (max-width: 1024px) {
   .layout {
     width: 748px;
   }
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   .layout {
     width: 520px;
   }
 }
 
-@media (max-width: 540px) { 
+@media (max-width: 540px) {
   .layout {
     width: 320px;
   }
 }
 
-@media (max-width: 320px) { 
+@media (max-width: 320px) {
   .layout {
     width: auto;
   }

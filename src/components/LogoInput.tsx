@@ -11,44 +11,49 @@ type IconTextProps = InputHTMLAttributes<HTMLInputElement> & {
   iconClassName?: string;
   inputClassName?: string;
   src: string;
-}
+};
 
-const IconText = forwardRef<HTMLInputElement, IconTextProps>(({
-  id,
-  iconWidth,
-  iconHeight,
-  className,
-  iconClassName,
-  inputClassName,
-  src,
-  ...inputProps
-}, ref) => {
-  return (
-    <div
-      className={clsxm(
-        'flex items-center gap-[10px] border-2 rounded-lg border-gray-200',
-        className
-      )}
-    >
-      <Image
-        src={src}
-        width={iconWidth}
-        height={iconHeight}
-        className={clsxm('object-contain ml-[12px]', iconClassName)}
-        alt='input email icon'
-      />
-      <input
-        {...inputProps}
-        id={id}
-        ref={ref}
+const IconText = forwardRef<HTMLInputElement, IconTextProps>(
+  (
+    {
+      id,
+      iconWidth,
+      iconHeight,
+      className,
+      iconClassName,
+      inputClassName,
+      src,
+      ...inputProps
+    },
+    ref,
+  ) => {
+    return (
+      <div
         className={clsxm(
-          'pr-[12px] py-[10px] bg-transparent border-none ring-0 outline-none w-full',
-          inputClassName,
+          'flex items-center gap-[10px] border-2 rounded-lg border-gray-200',
+          className,
         )}
-      />
-    </div>
-  );
-});
+      >
+        <Image
+          src={src}
+          width={iconWidth}
+          height={iconHeight}
+          className={clsxm('object-contain ml-[12px]', iconClassName)}
+          alt='input email icon'
+        />
+        <input
+          {...inputProps}
+          id={id}
+          ref={ref}
+          className={clsxm(
+            'pr-[12px] py-[10px] bg-transparent border-none ring-0 outline-none w-full',
+            inputClassName,
+          )}
+        />
+      </div>
+    );
+  },
+);
 
 IconText.displayName = 'IconText';
 

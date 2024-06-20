@@ -1,6 +1,11 @@
-import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react';
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Transition,
+} from '@headlessui/react';
 import * as React from 'react';
-import { IoMdArrowDropdown } from "react-icons/io";
+import { IoMdArrowDropdown } from 'react-icons/io';
 
 import clsxm from '@/lib/clsxm';
 import { ExtractProps } from '@/types/helper';
@@ -19,7 +24,12 @@ export default function Accordion({
   return (
     <Disclosure as={React.Fragment} {...rest}>
       {({ open }) => (
-        <div className={clsxm('py-3 my-3 space-y-3 [&:not(:last-child)]:border-b-2 border-gray-100 bg-transparent', className)}>
+        <div
+          className={clsxm(
+            'py-3 my-3 space-y-3 [&:not(:last-child)]:border-b-2 border-gray-100 bg-transparent',
+            className,
+          )}
+        >
           <DisclosureButton className='w-full flex justify-between items-center'>
             <h6
               className={clsxm(
@@ -30,7 +40,12 @@ export default function Accordion({
               {title}
             </h6>
             <div className='relative ml-1.5'>
-              <IoMdArrowDropdown className={clsxm('transition-all duration-150 w-6 h-6 text-base-primary', !open ? "-rotate-90" : 'rotate-0')} />
+              <IoMdArrowDropdown
+                className={clsxm(
+                  'transition-all duration-150 w-6 h-6 text-base-primary',
+                  !open ? '-rotate-90' : 'rotate-0',
+                )}
+              />
             </div>
           </DisclosureButton>
 
@@ -40,7 +55,9 @@ export default function Accordion({
             leaveFrom='opacity-100 max-h-96'
             leaveTo='opacity-0 max-h-0'
           >
-            <DisclosurePanel className="transition-all duration-300 overflow-hidden">{children}</DisclosurePanel>
+            <DisclosurePanel className='transition-all duration-300 overflow-hidden'>
+              {children}
+            </DisclosurePanel>
           </Transition>
         </div>
       )}

@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({
       {...buttonProps}
       className={clsxm(
         'bg-primary-700 rounded-lg py-[8px] px-[16px] text-white font-medium hover:brightness-90',
-        className
+        className,
       )}
     >
       {!isPending ? children : <ImSpinner2 className='animate-spin' />}
