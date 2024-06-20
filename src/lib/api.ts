@@ -11,10 +11,11 @@ const isServer = () => {
 let context = <GetServerSidePropsContext>{};
 
 export const api = axios.create({
-  baseURL:
-    process.env.NODE_ENV === 'development'
-      ? process.env.NEXT_PUBLIC_API_DEVELOPMENT_URL
-      : process.env.NEXT_PUBLIC_API_PRODUCTION_URL,
+  // baseURL:
+  //   process.env.NODE_ENV === 'development'
+  //     ? process.env.NEXT_PUBLIC_API_DEVELOPMENT_URL
+  //     : process.env.NEXT_PUBLIC_API_PRODUCTION_URL,
+  baseURL: 'https://api.cakno.online/api',
   headers: {
     'Content-Type': 'application/json',
   },
