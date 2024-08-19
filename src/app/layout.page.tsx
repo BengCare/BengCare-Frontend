@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import {} from 'next/navigation';
+import { } from 'next/navigation';
 import NextTopLoader from 'nextjs-toploader';
 import React from 'react';
 
@@ -35,13 +35,15 @@ export default function RootLayout({
         <Toast />
         <nav className='fixed top-0 w-full bg-white h-[100px] shadow-sm z-50'>
           <div className='layout flex items-center h-full justify-between'>
-            <Image
-              src='/logo-primary500-white.svg'
-              alt='logo'
-              height={48}
-              width={200}
-              className='object-contain'
-            />
+            <Link href='/'>
+              <Image
+                src='/logo-primary500-white.svg'
+                alt='logo'
+                height={48}
+                width={200}
+                className='object-contain'
+              />
+            </Link>
             <div className='hidden sm:grid gap-8 grid-flow-col text-black font-medium'>
               <Link href='/#' className='text-sm md:text-base'>
                 BERANDA
@@ -51,6 +53,9 @@ export default function RootLayout({
               </Link>
               <Link href='/#faq' className='text-sm md:text-base'>
                 FAQ
+              </Link>
+              <Link href='/artikel' className='text-sm md:text-base'>
+                ARTIKEL
               </Link>
             </div>
           </div>
