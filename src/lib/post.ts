@@ -1,6 +1,6 @@
 import fs from 'fs';
-import path from 'path';
 import matter from 'gray-matter';
+import path from 'path';
 import { remark } from 'remark';
 import html from 'remark-html';
 
@@ -24,7 +24,7 @@ function titleToSlug(title: string): string {
     .replace(/-+/g, '-');
 }
 
-export function getAllPostSlugs(){
+export function getAllPostSlugs() {
   const fileNames = fs.readdirSync(postsDirectory);
 
   return fileNames.map((fileName) => {
@@ -32,11 +32,9 @@ export function getAllPostSlugs(){
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
 
-    const processedContent = remark()
-      .use(html)
-      .process(matterResult.content);
-      
-    const contentHtml = processedContent.toString();
+    const processedContent = remark().use(html).process(matterResult.content);
+
+    const _contentHtml = processedContent.toString();
 
     return {
       params: {

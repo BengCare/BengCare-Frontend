@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { } from 'next/navigation';
+import {} from 'next/navigation';
 import NextTopLoader from 'nextjs-toploader';
 import React from 'react';
 
