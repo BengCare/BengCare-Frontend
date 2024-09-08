@@ -140,9 +140,14 @@ export default function RootLayout({
                 width={257}
                 className='object-contain'
               />
-              <p className='text-white font-medium text-lg'>
-                BengCare @ 2024. All rights reserved.
-              </p>
+              <div>
+                <p className='text-white font-medium text-lg'>
+                  BengCare @ 2024. All rights reserved.
+                </p>
+                <p className='text-white text-sm text-right'>
+                  <a href='/privacy-policy'>Privacy Policy</a>
+                </p>
+              </div>
             </div>
           </div>
         </footer>

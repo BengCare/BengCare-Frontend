@@ -12,9 +12,8 @@ export default function PrivacyPolicyPage() {
       <article className='prose prose-gray prose-sm md:prose-base prose-h1:font-bold prose-a:text-primary-700 min-w-full'>
         <div className='text-center'>
           <h1>Kebijakan Privasi Aplikasi BengCare</h1>
-          <h4>Terakhir diubah pada: Agustus 2024</h4>
+          <h4>Terakhir diubah pada: 08 September 2024</h4>
         </div>
-
         <p>
           Kami percaya bahwa Anda berhak membuat keputusan yang tepat mengenai
           data pribadi Anda. Kebijakan Privasi ini menjelaskan jenis data
