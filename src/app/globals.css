@@ -12,6 +12,23 @@ body {
   padding: 0;
 }
 
+@layer components {
+  /* #region  /**=========== DropzoneInput Border =========== */
+  /** @see https://kovart.github.io/dashed-border-generator/ */
+  .dropzone-border {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='%239ca3afFF' stroke-width='4' stroke-dasharray='7' stroke-dashoffset='20' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: 0.5rem;
+  }
+  .dropzone-border-error {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='%23EF4444FF' stroke-width='4' stroke-dasharray='7' stroke-dashoffset='20' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: 0.5rem;
+  }
+  .dropzone-border-ondrag {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='%23415D9EFF' stroke-width='4' stroke-dasharray='7' stroke-dashoffset='20' stroke-linecap='square'/%3e%3c/svg%3e");
+  }
+  /* #endregion  /**======== DropzoneInput Border =========== */
+}
+
 .layout {
   width: 1220px;
   margin: 0 auto;

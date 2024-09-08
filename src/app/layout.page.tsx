@@ -44,7 +44,7 @@ export default function RootLayout({
                 className='object-contain'
               />
             </Link>
-            <div className='hidden sm:grid gap-8 grid-flow-col text-black font-medium'>
+            <div className='hidden sm:flex items-center gap-8 text-black font-medium'>
               <Link href='/#' className='text-sm md:text-base'>
                 BERANDA
               </Link>
@@ -56,6 +56,13 @@ export default function RootLayout({
               </Link>
               <Link href='/artikel' className='text-sm md:text-base'>
                 ARTIKEL
+              </Link>
+
+              <Link
+                href='/registration'
+                className='inline-flex items-center justify-center h-11 px-4 py-2 bg-primary-700 rounded-lg text-white font-medium hover:bg-primary-700/90'
+              >
+                Daftarkan Bengkel
               </Link>
             </div>
           </div>
