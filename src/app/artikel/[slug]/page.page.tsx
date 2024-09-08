@@ -1,6 +1,7 @@
-import { getPostData } from '@/lib/post';
-import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
+
+import { getPostData } from '@/lib/post';
 
 interface PostPageProps {
   params: { slug: string };
@@ -9,14 +10,15 @@ interface PostPageProps {
 export default async function PostPage({ params }: PostPageProps) {
   const postData = await getPostData(params.slug);
 
-
   if (!postData) {
     notFound();
   }
 
   return (
     <article className='layout'>
-      <h1 className='mt-10 text-center text-[#29407F] font-bold text-[26px]'>{postData.title}</h1>
+      <h1 className='mt-10 text-center text-[#29407F] font-bold text-[26px]'>
+        {postData.title}
+      </h1>
       <p className=' text-xs text-center'>{postData.date}</p>
       <Image
         src={postData.image}
@@ -25,7 +27,10 @@ export default async function PostPage({ params }: PostPageProps) {
         width={1200}
         className='object-contain md:max-w-fit mx-auto my-[20px]'
       />
-      <div className='text-justify' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <div
+        className='text-justify'
+        dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+      />
       <Image
         src='/homepage/border-horizontal-full.png'
         alt='border horizontal full'

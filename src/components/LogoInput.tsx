@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { forwardRef,InputHTMLAttributes } from 'react';
+import React, { forwardRef, InputHTMLAttributes } from 'react';
 
 import clsxm from '@/lib/clsxm';
 

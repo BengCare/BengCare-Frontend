@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { } from 'next/navigation';
+import {} from 'next/navigation';
 import NextTopLoader from 'nextjs-toploader';
 import React from 'react';
 
@@ -140,9 +140,14 @@ export default function RootLayout({
                 width={257}
                 className='object-contain'
               />
-              <p className='text-white font-medium text-lg'>
-                BengCare @ 2024. All rights reserved.
-              </p>
+              <div>
+                <p className='text-white font-medium text-lg'>
+                  BengCare @ 2024. All rights reserved.
+                </p>
+                <p className='text-white text-sm text-right'>
+                  <a href='/privacy-policy'>Privacy Policy</a>
+                </p>
+              </div>
             </div>
           </div>
         </footer>
