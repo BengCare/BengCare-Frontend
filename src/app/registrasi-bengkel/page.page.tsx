@@ -4,6 +4,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import Image from 'next/image';
 
 import Button from '@/components/Button';
 import Checkbox from '@/components/Checkbox';
@@ -88,6 +89,7 @@ export default function BengkelRegistrationPage() {
         }),
       onSuccess: () => router.push('/'),
     }),
+
   );
 
   const onSubmit: SubmitHandler<BengkelRegistrationForm> = async (data) => {
@@ -189,7 +191,7 @@ export default function BengkelRegistrationPage() {
               required: 'Nomor telepon bengkel wajib diisi',
             }}
           />
-
+          <Image src="/deskripsi-bengkel.png" alt="Deskripsi Bengkel" width={290} height={767} className='mx-auto'></Image>
           <Textarea
             id='desc'
             label='Deskripsi Bengkel'
@@ -268,12 +270,12 @@ export default function BengkelRegistrationPage() {
               />
             ))}
 
-            <div className='inline-flex items-center gap-2'>
+            <div className='inline-flex items-center gap-2 w-full'>
               <Checkbox
                 name='list_of_service'
                 label={null}
                 value={otherService.text}
-                containerClassname='gap-3 px-1 w-fit'
+                containerClassname='gap-3 px-1'
                 validation={{
                   validate: validateListOfService,
                 }}
@@ -292,7 +294,7 @@ export default function BengkelRegistrationPage() {
                         text: e.target.value,
                       }));
                     }}
-                    placeholder='Yang lain'
+                    placeholder='yang lain, format: "Servis 1, Servis 2"'
                     className='flex w-full !bg-transparent text-gray-800 border-0 border-b-2 border-gray-200 focus:border-primary-500 focus:outline-none focus:ring-0 ring-primary-500 caret-primary-800 placeholder:text-gray-400 p-0'
                   />
                 }
@@ -361,7 +363,7 @@ export default function BengkelRegistrationPage() {
                         text: e.target.value,
                       }));
                     }}
-                    placeholder='Yang lain'
+                    placeholder='Website, iklan, dll'
                     className='flex w-full !bg-transparent text-gray-800 border-0 border-b-2 border-gray-200 focus:border-primary-500 focus:outline-none focus:ring-0 ring-primary-500 caret-primary-800 placeholder:text-gray-400 p-0'
                   />
                 }
@@ -374,9 +376,6 @@ export default function BengkelRegistrationPage() {
             label='Kode Referral atau Pemberi Rekomendasi'
             placeholder='Masukkan kode referral atau nama orang yang merekomendasikan BengCare'
             sizes='large'
-            validation={{
-              required: 'Kode referral atau pemberi rekomendasi wajib diisi',
-            }}
           />
 
           <Button

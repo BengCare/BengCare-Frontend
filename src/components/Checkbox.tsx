@@ -61,7 +61,7 @@ export default function Checkbox({
   };
 
   return (
-    <div>
+    <div className='w-full'>
       <label
         htmlFor={name + '_' + value}
         className={clsxm('flex items-center gap-3', containerClassname)}

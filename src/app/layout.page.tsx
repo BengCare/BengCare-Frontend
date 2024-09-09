@@ -59,7 +59,7 @@ export default function RootLayout({
               </Link>
 
               <Link
-                href='/registration'
+                href='/registrasi-bengkel'
                 className='inline-flex items-center justify-center h-11 px-4 py-2 bg-primary-700 rounded-lg text-white font-medium hover:bg-primary-700/90'
               >
                 Daftarkan Bengkel
