@@ -1,11 +1,11 @@
 {
   "headers": [
     {
-      "source": "/",
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
-          "value": "bengcare-preview.vercel.app"
+          "value": "beng-care-frontend.vercel.app"
         }
       ],
       "headers": [
