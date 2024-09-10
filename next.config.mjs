@@ -17,6 +17,20 @@ const nextConfig = {
       },
     ],
   },
+
+  async headers() {
+    return [
+      {
+        source: '/:path*', 
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview' ? 'noindex' : 'index, follow', 
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
