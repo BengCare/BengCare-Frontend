@@ -18,6 +18,7 @@ type DropzoneInputProps = {
   helperText?: string;
   readOnly?: boolean;
   hideError?: boolean;
+  required?: boolean;
   validation?: Record<string, unknown>;
 };
 
@@ -30,6 +31,7 @@ export default function DropzoneInput({
   helperText,
   readOnly = false,
   hideError = false,
+  required = false,
   validation,
 }: DropzoneInputProps) {
   const {
@@ -139,6 +141,7 @@ export default function DropzoneInput({
       {withLabel && (
         <label className='text-gray-500 text-sm font-medium' htmlFor={id}>
           {label}
+          {required && <span className='text-red-500 ml-1'>*</span>}
         </label>
       )}
 

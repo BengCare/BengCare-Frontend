@@ -49,6 +49,7 @@ export default function Input({
   disabled,
   sizes,
   className,
+  required,
   ...rest
 }: InputProps) {
   const {
@@ -77,6 +78,7 @@ export default function Input({
       {withLabel && (
         <label htmlFor={id} className='text-gray-500 text-sm font-medium'>
           {label}
+          {required && <span className='text-red-500 ml-1'>*</span>}
         </label>
       )}
 

@@ -45,6 +45,7 @@ export default function Textarea({
   disabled,
   sizes,
   rows,
+  required,
   ...rest
 }: TextareaProps) {
   const {
@@ -67,6 +68,7 @@ export default function Textarea({
       {withLabel && (
         <label htmlFor={id} className='text-gray-500 text-sm font-medium'>
           {label}
+          {required && <span className='text-red-500 ml-1'>*</span>}
         </label>
       )}
 
