@@ -150,7 +150,7 @@ export default function BengkelRegistrationPage() {
     <main className='layout py-10 space-y-6'>
       <div className='space-y-3 text-center'>
         <h1 className='uppercase text-4xl font-semibold'>
-          Pendaftaran Bengkel
+          Pendaftaran Awal Bengkel
         </h1>
         <p>Daftarkan bengkel Anda dengan mengisi formulir di bawah ini</p>
       </div>
