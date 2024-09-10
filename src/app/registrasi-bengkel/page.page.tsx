@@ -1,10 +1,10 @@
 'use client';
 
 import { useMutation } from '@tanstack/react-query';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import Image from 'next/image';
 
 import Button from '@/components/Button';
 import Checkbox from '@/components/Checkbox';
@@ -89,7 +89,6 @@ export default function BengkelRegistrationPage() {
         }),
       onSuccess: () => router.push('/'),
     }),
-
   );
 
   const onSubmit: SubmitHandler<BengkelRegistrationForm> = async (data) => {
@@ -109,7 +108,6 @@ export default function BengkelRegistrationPage() {
 
     // Re-run validation
     const isValid = await trigger(['list_of_service', 'info_from']);
-    console.log(form.getValues('info_from'));
     if (isValid) {
       const isPromiseValue = data.is_promise as unknown as string;
       data.is_promise = isPromiseValue === 'iya';
@@ -152,6 +150,7 @@ export default function BengkelRegistrationPage() {
         <h1 className='uppercase text-4xl font-semibold'>
           Pendaftaran Awal Bengkel
         </h1>
+
         <p>Daftarkan bengkel Anda dengan mengisi formulir di bawah ini</p>
       </div>
 
@@ -166,6 +165,7 @@ export default function BengkelRegistrationPage() {
             label='Email'
             placeholder='Masukkan email Anda'
             sizes='large'
+            required
             validation={{
               required: 'Email wajib diisi',
             }}
@@ -176,6 +176,7 @@ export default function BengkelRegistrationPage() {
             label='Nama'
             placeholder='Masukkan nama bengkel Anda'
             sizes='large'
+            required
             validation={{
               required: 'Nama bengkel wajib diisi',
             }}
@@ -187,15 +188,25 @@ export default function BengkelRegistrationPage() {
             label='Nomor Telepon'
             placeholder='Masukkan nomor telepon bengkel Anda'
             sizes='large'
+            required
             validation={{
               required: 'Nomor telepon bengkel wajib diisi',
             }}
           />
-          <Image src="/deskripsi-bengkel.png" alt="Deskripsi Bengkel" width={290} height={767} className='mx-auto'></Image>
+
+          <Image
+            src='/deskripsi-bengkel.png'
+            alt='Deskripsi Bengkel'
+            width={290}
+            height={767}
+            className='mx-auto'
+          />
+
           <Textarea
             id='desc'
             label='Deskripsi Bengkel'
             placeholder='Tuliskan deskripsi bengkel Anda'
+            required
             validation={{ required: 'Deskripsi bengkel wajib diisi' }}
           />
 
@@ -205,6 +216,7 @@ export default function BengkelRegistrationPage() {
             label='Jam Buka'
             placeholder='Masukkan jam buka bengkel Anda'
             sizes='large'
+            required
             validation={{
               required: 'Jam buka bengkel wajib diisi',
             }}
@@ -216,13 +228,16 @@ export default function BengkelRegistrationPage() {
             label='Jam Tutup'
             placeholder='Masukkan jam tutup bengkel Anda'
             sizes='large'
+            required
             validation={{
               required: 'Jam tutup bengkel wajib diisi',
             }}
           />
 
           <div className='space-y-2'>
-            <p className='text-sm font-medium text-gray-500'>Jenis Bengkel</p>
+            <p className='text-sm font-medium text-gray-500'>
+              Jenis Bengkel <span className='text-red-500 ml-1'>*</span>
+            </p>
 
             <Checkbox
               name='type'
@@ -247,13 +262,14 @@ export default function BengkelRegistrationPage() {
             label='Foto Bengkel'
             maxFiles={5}
             maxSize={10000000}
+            required
             validation={{ required: 'Foto bengkel wajib diisi' }}
             accept={{ 'image/*': ['.png', '.jpg', '.jpeg'] }}
           />
 
           <div className='space-y-2'>
             <p className='text-sm font-medium text-gray-500'>
-              Servis yang tersedia
+              Servis yang tersedia <span className='text-red-500 ml-1'>*</span>
             </p>
 
             {AVAILABLE_SERVICES.map((value, index) => (
@@ -304,8 +320,8 @@ export default function BengkelRegistrationPage() {
 
           <div className='space-y-2 p-4 rounded-lg border-2 border-gray-200 bg-white'>
             <p className='text-gray-800'>
-              Apakah anda berjanji untuk mendownload aplikasi BengCare dan
-              menggunakannya
+              Apakah anda bersedia untuk menggunakan aplikasi BengCare nantinya?
+              <span className='text-red-500 ml-1'>*</span>
             </p>
 
             <Radio
@@ -313,20 +329,21 @@ export default function BengkelRegistrationPage() {
               label='Iya'
               value='iya'
               hideError
-              validation={{ required: 'Perjanjian ini wajib diisi' }}
+              validation={{ required: 'Bagian ini wajib diisi' }}
             />
 
             <Radio
               name='is_promise'
               label='Tidak'
               value='tidak'
-              validation={{ required: 'Perjanjian ini wajib diisi' }}
+              validation={{ required: 'Bagian ini wajib diisi' }}
             />
           </div>
 
           <div className='space-y-2'>
             <p className='text-sm font-medium text-gray-500'>
               Dari mana Anda tahu BengCare?
+              <span className='text-red-500 ml-1'>*</span>
             </p>
 
             {INFORMATION_SOURCES.map((value, index) => (
