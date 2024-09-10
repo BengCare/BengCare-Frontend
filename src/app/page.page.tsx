@@ -62,7 +62,7 @@ export default function Home() {
               className='sm:hidden layout object-contain'
             />
             <p className='text-sm xl:text-base'>
-              Bergabung sekarang untuk menjadi pengguna bengCare dan nikmati
+              Bergabung sekarang untuk menjadi pengguna BengCare dan nikmati
               informasi terkini dari BengCare.
             </p>
             <FormProvider {...methods}>
@@ -239,7 +239,7 @@ export default function Home() {
             dengan menekan tombol Riwayat, lalu Menuggu konfirmasi atau
             diproses. Anda dapat melakukan pembatalan dengan mudah melalui menu
             pemesanan di aplikasi, dan pastikan untuk memberitahukan bengkel
-            terkait secepat mungkin jika ada perubahan jadwal.
+            terkait secepat mungkin jika ada perubahan jadwal.
           </p>
         </Accordion>
       </div>
