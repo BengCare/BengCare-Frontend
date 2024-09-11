@@ -26,9 +26,6 @@ jobs:
           echo "NEXT_PUBLIC_API_DEVELOPMENT_URL=https://api.bengcare.com/api" >> .env
           echo "NEXT_PUBLIC_API_PRODUCTION_URL=https://api.bengcare.com/api" >> .env
 
-      - name: Install PM2
-        run: npm install -g pm2
-
       - name: Install Dependencies
         run: yarn install
 
@@ -66,6 +63,15 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.8.0'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Install pm2
+        run: npm install -g pm2
+      
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Release the App
@@ -83,6 +89,7 @@ jobs:
             git stash
             git fetch
             git pull
+            pm2 restart BengCare-Frontend
       - name: Delete Artifact
         uses: geekyeggo/delete-artifact@v2
         with:
