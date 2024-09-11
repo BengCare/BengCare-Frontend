@@ -1,11 +1,9 @@
-name: 'Fe BengCare-Frontend Auto Deploy'
-
+name: Fe BengCare-Frontend Auto Deploy
 on:
-  workflow_run:
-    workflows: ['Code Check']
-    branches: [main]
-    types:
-      - completed
+  push:
+    branches:
+      - main
+  pull_request: {}
 
 jobs:
   build:
