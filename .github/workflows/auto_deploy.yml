@@ -1,4 +1,4 @@
-name: '[FE BengCare Auto Deploy]'
+name: 'Fe BengCare-Frontend Auto Deploy'
 
 on:
   workflow_run:
@@ -25,6 +25,9 @@ jobs:
           echo "NODE_ENV=production" >> .env
           echo "NEXT_PUBLIC_API_DEVELOPMENT_URL=https://api.bengcare.com/api" >> .env
           echo "NEXT_PUBLIC_API_PRODUCTION_URL=https://api.bengcare.com/api" >> .env
+
+      - name: Install pm2
+        run: npm install -g pm2
 
       - name: Install Dependencies
         run: yarn install
@@ -62,20 +65,11 @@ jobs:
   release:
     needs: deploy
     runs-on: ubuntu-latest
-    steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '22.8.0'
-          registry-url: 'https://registry.npmjs.org/'
-
-      - name: Install pm2
-        run: npm install -g pm2
-      
+    steps:      
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Release the App
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ secrets.SSH_PORT }}
@@ -89,7 +83,8 @@ jobs:
             git stash
             git fetch
             git pull
-            export PATH=$PATH:/home/c004d4ky0481/.yarn/bin
+            yarn --version
+            pm2 -v
           
             yarn install
             pm2 restart BengCare-Frontend
