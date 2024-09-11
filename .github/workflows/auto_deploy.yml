@@ -78,11 +78,21 @@ jobs:
           script: |
             cd /var/www/BengCare-Frontend
             eval $(ssh-agent -s)
-            ssh-add ~/.ssh/githubkey
+            ssh-add ~/.ssh/id_ed25519
             ssh -T git@github.com
             git stash
             git fetch
             git pull
+            if ! command -v yarn &> /dev/null
+            then
+              echo "yarn could not be found, installing..."
+              npm install -g yarn
+            fi
+            if ! command -v pm2 &> /dev/null
+            then
+              echo "pm2 could not be found, installing..."
+              npm install -g pm2
+            fi
             yarn install
             pm2 restart BengCare-Frontend
       - name: Delete Artifact
