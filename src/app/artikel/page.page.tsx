@@ -18,7 +18,7 @@ export default async function Home() {
               <div className='flex justify-start items-start gap-8'>
                 <Image
                   src={params.image}
-                  alt='article hero image'
+                  alt={params.title}
                   height={250}
                   width={250}
                   className='object-cover'
