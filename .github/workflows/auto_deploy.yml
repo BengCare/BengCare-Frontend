@@ -89,6 +89,9 @@ jobs:
             git stash
             git fetch
             git pull
+            export PATH=$PATH:/home/c004d4ky0481/.yarn/bin
+          
+            yarn install
             pm2 restart BengCare-Frontend
       - name: Delete Artifact
         uses: geekyeggo/delete-artifact@v2
