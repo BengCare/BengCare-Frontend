@@ -20,12 +20,16 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 21
+          node-version: '22.8.0'
+          registry-url: 'https://registry.npmjs.org/'
 
       - name: 📥 Download deps
         uses: u0reo/npm-install@fix/restore-failure
         with:
           useRollingCache: true
+      
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
 
       - name: 🔬 Lint
         run: yarn lint:strict
