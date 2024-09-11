@@ -23,11 +23,6 @@ jobs:
           node-version: '22.8.0'
           registry-url: 'https://registry.npmjs.org/'
 
-      - name: 📥 Download deps
-        uses: u0reo/npm-install@fix/restore-failure
-        with:
-          useRollingCache: true
-      
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
@@ -36,6 +31,9 @@ jobs:
 
       - name: 🔎 Type check
         run: yarn typecheck
+
+      - name: 💅 Prettier write
+        run: yarn format:write
 
       - name: 💅 Prettier check
         run: yarn format:check
