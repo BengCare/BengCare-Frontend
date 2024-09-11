@@ -1,0 +1,91 @@
+name: '[FE BengCare Auto Deploy]'
+
+on:
+  workflow_run:
+    workflows: ['Code Check']
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.8.0'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Insert Env
+        run: |
+          echo "NODE_ENV=production" >> .env
+          echo "NEXT_PUBLIC_API_DEVELOPMENT_URL=https://api.bengcare.com/api" >> .env
+          echo "NEXT_PUBLIC_API_PRODUCTION_URL=https://api.bengcare.com/api" >> .env
+
+      - name: Install PM2
+        run: npm install -g pm2
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Build Frontend App
+        run: yarn build
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: ./.next
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: artifact
+          path: ./.next
+      - name: Check Files
+        run: ls -la .
+      - name: Copy Build to Server via SSH
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: .next/
+          target: /var/www/BengCare-Frontend
+
+  release:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Release the App
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/BengCare-Frontend
+            eval $(ssh-agent -s)
+            ssh-add ~/.ssh/githubkey
+            ssh -T git@github.com
+            git stash
+            git fetch
+            git pull
+            yarn install
+            pm2 restart BengCare-Frontend
+      - name: Delete Artifact
+        uses: geekyeggo/delete-artifact@v2
+        with:
+          name: artifact
