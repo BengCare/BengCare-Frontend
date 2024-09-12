@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
             mengumpulkan kategori berikut ini dari Data Pribadi:
           </p>
 
-          <ol>
+          <ol className='[&>li::marker]:font-semibold [&>li::marker]:text-gray-800'>
             <li>
               <p>
                 <strong>
@@ -119,6 +119,14 @@ export default function PrivacyPolicyPage() {
             </li>
           </ol>
         </div>
+
+        <p>
+          Untuk keluhan maupun pertanyaan lebih lanjut, silahkan kunjungi{' '}
+          <a href='https://helpdesk.bengcare.com' target='_blank'>
+            <i>helpdesk</i>
+          </a>{' '}
+          BengCare.
+        </p>
       </article>
     </main>
   );

@@ -48,13 +48,22 @@ export default function RootLayout({
               <Link href='/#' className='hidden md:block text-sm md:text-base'>
                 BERANDA
               </Link>
-              <Link href='/#tentang-kami' className='hidden md:block text-sm md:text-base'>
+              <Link
+                href='/#tentang-kami'
+                className='hidden md:block text-sm md:text-base'
+              >
                 TENTANG KAMI
               </Link>
-              <Link href='/#faq' className='hidden md:block text-sm md:text-base'>
+              <Link
+                href='/#faq'
+                className='hidden md:block text-sm md:text-base'
+              >
                 FAQ
               </Link>
-              <Link href='/artikel' className='hidden sm:block text-sm md:text-base'>
+              <Link
+                href='/artikel'
+                className='hidden sm:block text-sm md:text-base'
+              >
                 ARTIKEL
               </Link>
 
@@ -147,13 +156,21 @@ export default function RootLayout({
                 width={257}
                 className='object-contain'
               />
-              <div>
+              <div className='space-y-1'>
                 <p className='text-white font-medium text-lg'>
                   BengCare @ 2024. All rights reserved.
                 </p>
-                <p className='text-white text-sm text-right'>
-                  <a href='/privacy-policy'>Privacy Policy</a>
-                </p>
+                <div className='flex gap-2 justify-end'>
+                  <p className='text-white text-sm'>
+                    <a href='/privacy-policy'>Privacy Policy</a>
+                  </p>
+
+                  <p className='text-white text-sm'>·</p>
+
+                  <p className='text-white text-sm'>
+                    <a href='/syarat-dan-ketentuan'>Syarat dan Ketentuan</a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
