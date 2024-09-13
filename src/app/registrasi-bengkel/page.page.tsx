@@ -82,6 +82,7 @@ export default function BengkelRegistrationPage() {
   >(
     useMutation({
       mutationFn: (data) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const formattedData: any = data as any;
         formattedData['available_vehicle_type'] = data['available_vehicle_type'].join(", ")
         formattedData['list_of_service'] = data['list_of_service'].join(", ")
