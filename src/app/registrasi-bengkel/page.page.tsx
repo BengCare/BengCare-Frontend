@@ -20,7 +20,7 @@ type BengkelRegistrationForm = {
   email: string;
   phone: string;
   address: string;
-  desc: string;
+  description: string;
   open_hour: string;
   close_hour: string;
   available_vehicle_type: string[];
@@ -81,12 +81,17 @@ export default function BengkelRegistrationPage() {
     BengkelRegistrationForm
   >(
     useMutation({
-      mutationFn: (data) =>
-        api.post('/bengkel_temp', data, {
+      mutationFn: (data) => {
+        const formattedData: any = data as any;
+        formattedData['available_vehicle_type'] = data['available_vehicle_type'].join(", ")
+        formattedData['list_of_service'] = data['list_of_service'].join(", ")
+        
+        return api.post('/bengkel_temp', formattedData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
-        }),
+        })
+      },
       onSuccess: () => router.push('/'),
     }),
   );
@@ -203,7 +208,7 @@ export default function BengkelRegistrationPage() {
           />
 
           <Textarea
-            id='desc'
+            id='description'
             label='Deskripsi Bengkel'
             placeholder='Tuliskan deskripsi bengkel Anda'
             required
@@ -240,7 +245,7 @@ export default function BengkelRegistrationPage() {
             </p>
 
             <Checkbox
-              name='type'
+              name='available_vehicle_type'
               label='Mobil'
               value='mobil'
               hideError
@@ -249,7 +254,7 @@ export default function BengkelRegistrationPage() {
             />
 
             <Checkbox
-              name='type'
+              name='available_vehicle_type'
               label='Motor'
               value='motor'
               containerClassname='gap-3 px-1 w-fit'
@@ -320,7 +325,7 @@ export default function BengkelRegistrationPage() {
 
           <div className='space-y-2 p-4 rounded-lg border-2 border-gray-200 bg-white'>
             <p className='text-gray-800'>
-              Apakah anda bersedia untuk menggunakan aplikasi BengCare nantinya?
+              Apakah anda tertarik untuk menggunakan aplikasi BengCare nantinya?
               <span className='text-red-500 ml-1'>*</span>
             </p>
 
