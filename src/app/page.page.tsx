@@ -134,7 +134,7 @@ export default function Home() {
       <div className='bg-primary-100 border-y-8 border-primary-700'>
         <div className='layout py-16'>
           <div className='flex flex-col md:flex-row gap-12 items-center'>
-            <div>
+            <div className='flex-1'>
               <h1 className='text-primary-800 font-bold text-[32px]'>
                 TENTANG KAMI
               </h1>
@@ -153,12 +153,17 @@ export default function Home() {
                 terbaik anda.
               </p>
             </div>
-            <Image
-              src='/homepage/coming-soon.png'
-              alt='coming soon!'
-              height={303}
-              width={455}
-              className='object-contain md:w-1/2 lg:w-full'
+
+            <iframe
+              width='480'
+              height='270'
+              src='https://www.youtube.com/embed/nCeEQVYyLLk?si=jZ1mCIRPgbGUUYfQ'
+              title='YouTube video player'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              referrerPolicy='strict-origin-when-cross-origin'
+              allowFullScreen
+              className='border-none w-full md:w-1/3 rounded-lg shrink-0'
+              style={{ border: 'none' }}
             />
           </div>
         </div>

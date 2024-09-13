@@ -15,7 +15,6 @@ export const api = axios.create({
     process.env.NODE_ENV === 'development'
       ? process.env.NEXT_PUBLIC_API_DEVELOPMENT_URL
       : process.env.NEXT_PUBLIC_API_PRODUCTION_URL,
-  // baseURL: 'https://api.bengcare.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
