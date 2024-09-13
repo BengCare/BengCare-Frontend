@@ -199,6 +199,18 @@ export default function BengkelRegistrationPage() {
             }}
           />
 
+          <Input
+            id='address'
+            type='address'
+            label='Alamat'
+            placeholder='Masukkan alamat bengkel Anda'
+            sizes='large'
+            required
+            validation={{
+              required: 'Alamat bengkel wajib diisi',
+            }}
+          />
+
           <Image
             src='/deskripsi-bengkel.png'
             alt='Deskripsi Bengkel'
