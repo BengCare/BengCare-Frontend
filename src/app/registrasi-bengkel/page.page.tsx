@@ -82,16 +82,17 @@ export default function BengkelRegistrationPage() {
   >(
     useMutation({
       mutationFn: (data) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const formattedData: any = data as any;
-        formattedData['available_vehicle_type'] = data['available_vehicle_type'].join(", ")
-        formattedData['list_of_service'] = data['list_of_service'].join(", ")
-        
+        const formattedData = {
+          ...data,
+          available_vehicle_type: data['available_vehicle_type'].join(', '),
+          list_of_service: data['list_of_service'].join(', '),
+        };
+
         return api.post('/bengkel_temp', formattedData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
-        })
+        });
       },
       onSuccess: () => router.push('/'),
     }),
@@ -106,13 +107,11 @@ export default function BengkelRegistrationPage() {
       setValue('list_of_service', data.list_of_service);
     }
 
-    // Set info_from to otherSource.text if applicable
     if (otherSource.checked && !!otherSource.text) {
       data.info_from = otherSource.text;
       setValue('info_from', data.info_from);
     }
 
-    // Re-run validation
     const isValid = await trigger(['list_of_service', 'info_from']);
     if (isValid) {
       const isPromiseValue = data.is_promise as unknown as string;
