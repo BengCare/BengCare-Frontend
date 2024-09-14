@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-  pull_request: {}
 
 jobs:
   build:
@@ -32,12 +31,16 @@ jobs:
 
       - name: Build Frontend App
         run: yarn build
+      
+      - name: Check if `.next` folder exists
+        run: ls -la .next
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: artifact
           path: ./.next
+          include-hidden-files: true
 
   deploy:
     needs: build
