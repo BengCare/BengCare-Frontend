@@ -72,6 +72,7 @@ export default function BengkelRegistrationPage() {
     defaultValues: {
       list_of_service: [],
       info_from: '',
+      images: []
     },
   });
   const { handleSubmit, trigger, setValue } = form;
@@ -86,6 +87,7 @@ export default function BengkelRegistrationPage() {
           ...data,
           available_vehicle_type: data['available_vehicle_type'].join(', '),
           list_of_service: data['list_of_service'].join(', '),
+          images: data['images'] || [],
         };
 
         return api.post('/bengkel_temp', formattedData, {
@@ -312,6 +314,7 @@ export default function BengkelRegistrationPage() {
                 validation={{
                   validate: validateListOfService,
                 }}
+                checked={otherService.checked}
                 onChange={(e) =>
                   setOtherService((prev) => ({
                     ...prev,
@@ -325,6 +328,7 @@ export default function BengkelRegistrationPage() {
                       setOtherService((prev) => ({
                         ...prev,
                         text: e.target.value,
+                        checked: true,
                       }));
                     }}
                     placeholder='yang lain, format: "Servis 1, Servis 2"'

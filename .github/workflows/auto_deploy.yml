@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-  pull_request: {}
 
 jobs:
   build:
@@ -37,7 +36,7 @@ jobs:
         run: ls -la .next
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: artifact
           path: ./.next
@@ -48,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: artifact
           path: ./.next
