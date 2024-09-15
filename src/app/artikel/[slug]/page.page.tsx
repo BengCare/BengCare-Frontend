@@ -16,14 +16,14 @@ function toTitleCase(str: string): string {
   );
 }
 
-export async function generateMetadata({
-  params,
-}: PostPageProps): Promise<Metadata> {
-  const articleTitle = toTitleCase(params.slug.split('-').join(' '));
-  return {
-    title: articleTitle + ' | Artikel BengCare',
-  };
-}
+// export async function generateMetadata({
+//   params,
+// }: PostPageProps): Promise<Metadata> {
+//   const articleTitle = toTitleCase(params.slug.split('-').join(' '));
+//   return {
+//     title: articleTitle + ' | Artikel BengCare',
+//   };
+// }
 
 export default async function PostPage({ params }: PostPageProps) {
   const postData = await getPostData(params.slug);
