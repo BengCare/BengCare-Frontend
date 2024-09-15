@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
@@ -5,6 +6,22 @@ import { getPostData } from '@/lib/post';
 
 interface PostPageProps {
   params: { slug: string };
+}
+
+function toTitleCase(str: string): string {
+  return str.replace(
+    /\w\S*/g,
+    (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase(),
+  );
+}
+
+export async function generateMetadata({
+  params,
+}: PostPageProps): Promise<Metadata> {
+  const articleTitle = toTitleCase(params.slug.split('-').join(' '));
+  return {
+    title: articleTitle + ' | Artikel BengCare',
+  };
 }
 
 export default async function PostPage({ params }: PostPageProps) {
