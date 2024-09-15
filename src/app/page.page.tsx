@@ -9,11 +9,13 @@ import Button from '@/components/Button';
 import LogoInput from '@/components/LogoInput';
 import useMutationToast from '@/hooks/useMutationToast';
 import api from '@/lib/api';
+import Head from 'next/head';
 
 interface EarlyAccess {
   email: string;
   files: string;
 }
+
 export default function Home() {
   const methods = useForm<EarlyAccess>();
   const { handleSubmit } = methods;
@@ -36,7 +38,6 @@ export default function Home() {
 
   return (
     <main>
-      <title>Homepage | BengCare</title>
       <div className='layout'>
         <div className='mt-[60px] flex gap-[20px]'>
           <div className='relative flex justify-center flex-col gap-[16px] md:gap-[10px] lg:gap-[24px] xl:gap-[24px]'>

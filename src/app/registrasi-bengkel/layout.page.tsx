@@ -3,7 +3,7 @@ import * as React from 'react';
 
 export const metadata: Metadata = {
   title: 'Registration | BengCare',
-  description: 'BengCare, Connecting you to trusted automotive services!',
+  description: 'Registasi bengkel anda ke program Mitra Awal kami!',
 };
 
 export default function BengkelRegistrationLayout({

@@ -1,16 +1,16 @@
 import './globals.css';
 
-import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import {} from 'next/navigation';
 import NextTopLoader from 'nextjs-toploader';
 import React from 'react';
 
 import IconText from '@/components/IconText';
 import Providers from '@/components/Providers';
 import Toast from '@/components/Toast';
+import Head from 'next/head';
+import { Metadata } from 'next';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -19,7 +19,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'BengCare',
-  description: 'BengCare, Connecting you to trusted automotive services!',
+  description: 'BengCare, Connecting you to trusted automotive services!.',
 };
 
 export default function RootLayout({
@@ -29,7 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' style={{ scrollBehavior: 'smooth' }}>
-      <link rel='icon' href='/favicon.ico' sizes='any' />
+      <Head>
+        <link rel='icon' href='/favicon.ico' sizes='any' />
+      </Head>
       <body className={poppins.className}>
         <NextTopLoader />
         <Toast />

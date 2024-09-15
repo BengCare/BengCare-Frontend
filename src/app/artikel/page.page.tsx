@@ -2,8 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { getAllPostSlugs } from '@/lib/post';
+import { Metadata } from 'next';
 
-export default async function Home() {
+export const metadata: Metadata = {
+  title: 'Artikel | BengCare',
+  description: 'Artikel-artikel BengCare mengenai informasi perawatan dan perbaikan terbaik kendaraan mobil atau motor',
+};
+
+export default async function Artikel() {
   const allPostsData = await getAllPostSlugs();
 
   return (

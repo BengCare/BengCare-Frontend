@@ -3,7 +3,7 @@ import * as React from 'react';
 
 export const metadata: Metadata = {
   title: 'Kebijakan Privasi | BengCare',
-  description: 'BengCare, Connecting you to trusted automotive services!',
+  description: 'Kebijakan privasi aplikasi BengCare',
 };
 
 export default function PrivacyPolicyPage() {

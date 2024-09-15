@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import * as React from 'react';
+
+export const metadata: Metadata = {
+  title: 'Syarat dan Ketentuan | BengCare',
+  description: 'Syarat dan ketentuan aplikasi BengCare',
+};
 
 export default function TermsAndConditionsPage() {
   return (
