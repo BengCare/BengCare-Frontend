@@ -1,6 +1,8 @@
 import './globals.css';
 
+import { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import NextTopLoader from 'nextjs-toploader';
@@ -9,8 +11,6 @@ import React from 'react';
 import IconText from '@/components/IconText';
 import Providers from '@/components/Providers';
 import Toast from '@/components/Toast';
-import Head from 'next/head';
-import { Metadata } from 'next';
 
 const poppins = Poppins({
   subsets: ['latin'],

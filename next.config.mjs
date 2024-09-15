@@ -39,20 +39,21 @@ const nextConfig = {
       {
         source: '/bug-report',
         destination: 'https://forms.gle/j1Yqko6S5wyrUpLa6',
-        permanent: true, 
+        permanent: true,
       },
       {
         source: '/beta-app',
-        destination: 'https://play.google.com/store/apps/details?id=com.bengcare.bengcare',
-        permanent: true, 
+        destination:
+          'https://play.google.com/store/apps/details?id=com.bengcare.bengcare',
+        permanent: true,
       },
       {
         source: '/daily-log',
         destination: 'https://forms.gle/jy1VBRaPysoqK7U6A',
-        permanent: true, 
+        permanent: true,
       },
     ];
-  }
+  },
 };
 
 export default nextConfig;

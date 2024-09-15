@@ -31,7 +31,7 @@ jobs:
 
       - name: Build Frontend App
         run: yarn build
-      
+
       - name: Check if `.next` folder exists
         run: ls -la .next
 
@@ -66,7 +66,7 @@ jobs:
   release:
     needs: deploy
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Release the App
@@ -90,7 +90,7 @@ jobs:
 
             yarn --version
             pm2 -v
-          
+
             yarn install
             pm2 restart BengCare-Frontend
       - name: Delete Artifact

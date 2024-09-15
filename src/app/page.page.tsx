@@ -9,7 +9,6 @@ import Button from '@/components/Button';
 import LogoInput from '@/components/LogoInput';
 import useMutationToast from '@/hooks/useMutationToast';
 import api from '@/lib/api';
-import Head from 'next/head';
 
 interface EarlyAccess {
   email: string;

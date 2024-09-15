@@ -1,12 +1,13 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { getAllPostSlugs } from '@/lib/post';
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Artikel | BengCare',
-  description: 'Artikel-artikel BengCare mengenai informasi perawatan dan perbaikan terbaik kendaraan mobil atau motor',
+  description:
+    'Artikel-artikel BengCare mengenai informasi perawatan dan perbaikan terbaik kendaraan mobil atau motor',
 };
 
 export default async function Artikel() {
@@ -33,7 +34,9 @@ export default async function Artikel() {
                   <p className='font-bold text-lg text-justify'>
                     {params.title.replace(/-/g, ' ')}
                   </p>
-                  <p className='text-sm text-gray-600 text-justify'>{params.desc}...</p>
+                  <p className='text-sm text-gray-600 text-justify'>
+                    {params.desc}...
+                  </p>
                   <p className='text-xs text-gray-400 mt-4'>{params.date}</p>
                 </div>
               </div>

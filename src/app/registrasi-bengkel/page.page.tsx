@@ -72,7 +72,7 @@ export default function BengkelRegistrationPage() {
     defaultValues: {
       list_of_service: [],
       info_from: '',
-      images: []
+      images: [],
     },
   });
   const { handleSubmit, trigger, setValue } = form;
