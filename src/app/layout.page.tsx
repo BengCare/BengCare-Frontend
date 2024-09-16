@@ -172,6 +172,14 @@ export default function RootLayout({
                   <p className='text-white text-sm'>
                     <a href='/syarat-dan-ketentuan'>Syarat dan Ketentuan</a>
                   </p>
+
+                  <p className='text-white text-sm'>·</p>
+
+                  <p className='text-white text-sm'>
+                    <a href='https://helpdesk.bengcare.com' target='_blank'>
+                      Helpdesk
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>
