@@ -5,7 +5,7 @@ import { get, RegisterOptions, useFormContext } from 'react-hook-form';
 import clsxm from '@/lib/clsxm';
 
 const textareaVariants = cva(
-  'block w-full rounded-lg text-gray-800 border-2 border-gray-200 focus:outline-none focus:ring-4 placeholder:text-gray-400',
+  'block w-full rounded-lg text-gray-800 border border-gray-200 shadow-sm focus:outline-none focus:ring-4 placeholder:text-gray-400',
   {
     variants: {
       sizes: {

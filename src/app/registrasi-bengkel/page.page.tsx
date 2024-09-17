@@ -357,14 +357,14 @@ export default function BengkelRegistrationPage() {
                       }
                     }}
                     placeholder='yang lain, format: "Servis 1, Servis 2"'
-                    className='flex w-full !bg-transparent text-gray-800 border-0 border-b-2 border-gray-200 focus:border-primary-500 focus:outline-none focus:ring-0 ring-primary-500 caret-primary-800 placeholder:text-gray-400 p-0'
+                    className='flex w-full !bg-transparent text-gray-800 border-0 border-b border-gray-200 focus:border-primary-500 focus:outline-none focus:ring-0 ring-primary-500 caret-primary-800 placeholder:text-gray-400 p-0'
                   />
                 }
               />
             </div>
           </div>
 
-          <div className='space-y-2 p-4 rounded-lg border-2 border-gray-200 bg-white'>
+          <div className='space-y-2 p-4 rounded-lg border border-gray-200 bg-white'>
             <p className='text-gray-800'>
               Apakah anda tertarik untuk menggunakan aplikasi BengCare nantinya?
               <span className='text-red-500 ml-1'>*</span>
@@ -445,7 +445,7 @@ export default function BengkelRegistrationPage() {
                       });
                     }}
                     placeholder='Website, iklan, dll'
-                    className='flex w-full !bg-transparent text-gray-800 border-0 border-b-2 border-gray-200 focus:border-primary-500 focus:outline-none focus:ring-0 ring-primary-500 caret-primary-800 placeholder:text-gray-400 p-0'
+                    className='flex w-full !bg-transparent text-gray-800 border-0 border-b border-gray-200 focus:border-primary-500 focus:outline-none focus:ring-0 ring-primary-500 caret-primary-800 placeholder:text-gray-400 p-0'
                   />
                 }
               />

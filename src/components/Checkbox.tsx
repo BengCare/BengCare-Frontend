@@ -5,7 +5,7 @@ import { get, RegisterOptions, useFormContext } from 'react-hook-form';
 import clsxm from '@/lib/clsxm';
 
 const checkboxVariants = cva(
-  'shrink-0 cursor-pointer shadow-sm peer appearance-none border-2 rounded checked:bg-primary-700 checked:border-primary-700 hover:checked:bg-primary-800 focus:checked:bg-primary-700 focus:ring-4 focus-visible:outline-none focus-visible:ring focus-visible:ring-offset-1 focus-visible:ring-primary-500',
+  'shrink-0 cursor-pointer shadow-sm peer appearance-none border border-gray-200 rounded checked:bg-primary-700 checked:border-primary-700 hover:checked:bg-primary-800 focus:checked:bg-primary-700 focus:ring-4 focus-visible:outline-none focus-visible:ring focus-visible:ring-offset-1 focus-visible:ring-primary-500',
   {
     variants: {
       size: {
