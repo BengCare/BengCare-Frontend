@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       {...buttonProps}
       className={clsxm(
-        'bg-primary-700 rounded-lg py-[8px] px-[16px] text-white font-medium hover:brightness-90',
+        'bg-primary-700 rounded-lg py-[8px] px-[16px] min-h-10 text-white font-medium hover:brightness-90',
         className,
       )}
     >
