@@ -2,7 +2,6 @@ import './globals.css';
 
 import { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import NextTopLoader from 'nextjs-toploader';
@@ -18,6 +17,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.bengcare.com'),
   title: 'BengCare',
   description: 'BengCare, Connecting you to trusted automotive services!.',
 };
@@ -29,9 +29,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' style={{ scrollBehavior: 'smooth' }}>
-      <Head>
-        <link rel='icon' href='/favicon.ico' sizes='any' />
-      </Head>
       <body className={poppins.className}>
         <NextTopLoader />
         <Toast />

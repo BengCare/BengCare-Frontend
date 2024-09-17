@@ -17,7 +17,7 @@ const IconText: React.FC<{
         alt={children ? children.toString() : 'icon'}
         width={iconWidth}
         height={iconHeight}
-        objectFit='contain'
+        className='object-contain'
       />
       <span className='leading-none'>{children}</span>
     </div>

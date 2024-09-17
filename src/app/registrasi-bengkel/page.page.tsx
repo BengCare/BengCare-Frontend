@@ -53,6 +53,7 @@ export const INFORMATION_SOURCES = [
   'Twitter',
   'Tiktok',
   'Teman',
+  'Tim BengCare',
 ];
 
 export default function BengkelRegistrationPage() {
@@ -71,11 +72,11 @@ export default function BengkelRegistrationPage() {
   const form = useForm<BengkelRegistrationForm>({
     defaultValues: {
       list_of_service: [],
-      info_from: '',
+      info_from: undefined,
       images: [],
     },
   });
-  const { handleSubmit, trigger, setValue } = form;
+  const { handleSubmit, setValue, watch } = form;
 
   const { mutate, isPending } = useMutationToast<
     undefined,
@@ -101,25 +102,10 @@ export default function BengkelRegistrationPage() {
   );
 
   const onSubmit: SubmitHandler<BengkelRegistrationForm> = async (data) => {
-    if (otherService.checked && !!otherService.text) {
-      data.list_of_service = [
-        ...data.list_of_service.filter((value) => !!value),
-        otherService.text,
-      ];
-      setValue('list_of_service', data.list_of_service);
-    }
+    const isPromiseValue = data.is_promise as unknown as string;
+    data.is_promise = isPromiseValue === 'iya';
 
-    if (otherSource.checked && !!otherSource.text) {
-      data.info_from = otherSource.text;
-      setValue('info_from', data.info_from);
-    }
-
-    const isValid = await trigger(['list_of_service', 'info_from']);
-    if (isValid) {
-      const isPromiseValue = data.is_promise as unknown as string;
-      data.is_promise = isPromiseValue === 'iya';
-      mutate(data);
-    }
+    mutate(data);
   };
 
   const validateListOfService = (list: string[]) => {
@@ -281,8 +267,6 @@ export default function BengkelRegistrationPage() {
             label='Foto Bengkel'
             maxFiles={5}
             maxSize={10000000}
-            required
-            validation={{ required: 'Foto bengkel wajib diisi' }}
             accept={{ 'image/*': ['.png', '.jpg', '.jpeg'] }}
           />
 
@@ -309,27 +293,57 @@ export default function BengkelRegistrationPage() {
               <Checkbox
                 name='list_of_service'
                 label={null}
-                value={otherService.text}
                 containerClassname='gap-3 px-1'
+                value={otherService.text}
+                checked={watch('list_of_service').includes(otherService.text)}
                 validation={{
                   validate: validateListOfService,
                 }}
-                checked={otherService.checked}
-                onChange={(e) =>
+                onChange={(e) => {
+                  const checked = e.target.checked;
+                  const currentValues = watch('list_of_service') || [];
+
                   setOtherService((prev) => ({
                     ...prev,
-                    checked: e.target.checked,
-                  }))
-                }
+                    checked: checked,
+                  }));
+
+                  if (checked) {
+                    setValue('list_of_service', [
+                      ...currentValues,
+                      otherService.text,
+                    ]);
+                  } else {
+                    setValue(
+                      'list_of_service',
+                      currentValues.filter(
+                        (value) => value !== otherService.text,
+                      ),
+                    );
+                  }
+                }}
                 customLabel={
                   <input
                     type='text'
+                    value={otherService.text}
                     onChange={(e) => {
+                      const newText = e.target.value;
+
                       setOtherService((prev) => ({
                         ...prev,
-                        text: e.target.value,
-                        checked: true,
+                        text: newText,
                       }));
+
+                      const currentValues = watch('list_of_service');
+                      if (otherService.checked) {
+                        const updatedValues = currentValues.filter(
+                          (value) => value !== otherService.text,
+                        );
+                        setValue('list_of_service', [
+                          ...updatedValues,
+                          newText,
+                        ]);
+                      }
                     }}
                     placeholder='yang lain, format: "Servis 1, Servis 2"'
                     className='flex w-full !bg-transparent text-gray-800 border-0 border-b-2 border-gray-200 focus:border-primary-500 focus:outline-none focus:ring-0 ring-primary-500 caret-primary-800 placeholder:text-gray-400 p-0'
@@ -377,6 +391,13 @@ export default function BengkelRegistrationPage() {
                 validation={{
                   validate: (value) => validateInfoFrom(value),
                 }}
+                onChange={() => {
+                  setOtherSource((prev) => ({
+                    ...prev,
+                    checked: false,
+                  }));
+                  setValue('info_from', value);
+                }}
               />
             ))}
 
@@ -384,22 +405,33 @@ export default function BengkelRegistrationPage() {
               <Radio
                 name='info_from'
                 label={null}
-                value={undefined}
+                value={otherSource.text}
                 checked={otherSource.checked}
-                onChange={(e) =>
+                onChange={(e) => {
                   setOtherSource((prev) => ({
                     ...prev,
                     checked: e.target.checked,
-                  }))
-                }
+                  }));
+                  setValue('info_from', otherSource.text);
+                }}
                 customLabel={
                   <input
                     type='text'
                     onChange={(e) => {
-                      setOtherSource((prev) => ({
-                        ...prev,
-                        text: e.target.value,
-                      }));
+                      setOtherSource((prev) => {
+                        if (!!e.target.value) {
+                          setValue('info_from', e.target.value);
+                          return {
+                            checked: true,
+                            text: e.target.value,
+                          };
+                        }
+
+                        return {
+                          ...prev,
+                          text: e.target.value,
+                        };
+                      });
                     }}
                     placeholder='Website, iklan, dll'
                     className='flex w-full !bg-transparent text-gray-800 border-0 border-b-2 border-gray-200 focus:border-primary-500 focus:outline-none focus:ring-0 ring-primary-500 caret-primary-800 placeholder:text-gray-400 p-0'
@@ -411,8 +443,8 @@ export default function BengkelRegistrationPage() {
 
           <Input
             id='referral_code'
-            label='Kode Referral atau Pemberi Rekomendasi'
-            placeholder='Masukkan kode referral atau nama orang yang merekomendasikan BengCare'
+            label='Kode Referral'
+            placeholder='Masukkan kode referral jika ada'
             sizes='large'
           />
 
