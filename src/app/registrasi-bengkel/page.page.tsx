@@ -76,7 +76,9 @@ export default function BengkelRegistrationPage() {
       images: [],
     },
   });
-  const { handleSubmit, setValue, watch } = form;
+
+  const { handleSubmit, setValue, watch, resetField } = form;
+  const code = watch('referral_code');
 
   const { mutate, isPending } = useMutationToast<
     undefined,
@@ -107,6 +109,15 @@ export default function BengkelRegistrationPage() {
 
     mutate(data);
   };
+
+  const { mutate: checkReferralCode, isPending: checkReferralCodeIsPending } =
+    useMutationToast<undefined, string>(
+      useMutation({
+        mutationFn: (data) => api.get(`/referral/check/${data}`),
+        onError: () => resetField('referral_code'),
+      }),
+      { loading: 'Memeriksa...' },
+    );
 
   const validateListOfService = (list: string[]) => {
     const isServiceSelected = list.length > 0;
@@ -441,16 +452,32 @@ export default function BengkelRegistrationPage() {
             </div>
           </div>
 
-          <Input
-            id='referral_code'
-            label='Kode Referral'
-            placeholder='Masukkan kode referral jika ada'
-            sizes='large'
-          />
+          <div className='flex items-end gap-3'>
+            <Input
+              id='referral_code'
+              label='Kode Referral'
+              placeholder='Masukkan kode referral jika ada'
+              sizes='large'
+              containerClassName='flex-1'
+              onChange={(event) => {
+                setValue('referral_code', event.target.value.toUpperCase());
+              }}
+            />
+
+            <Button
+              type='button'
+              className='min-h-12'
+              disabled={!code || checkReferralCodeIsPending}
+              isPending={checkReferralCodeIsPending}
+              onClick={() => checkReferralCode(code)}
+            >
+              Periksa
+            </Button>
+          </div>
 
           <Button
             type='submit'
-            className='w-full'
+            className='w-full min-h-12'
             isPending={isPending}
             disabled={isPending}
           >
