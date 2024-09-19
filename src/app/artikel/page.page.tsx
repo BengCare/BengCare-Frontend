@@ -15,7 +15,7 @@ export default async function Artikel() {
 
   return (
     <div className='layout'>
-      <h1 className='mt-10 mb-4 text-[#29407F] font-bold text-[26px]'>
+      <h1 className='mt-10 mb-4 text-[#29407F] font-bold text-[26px] text-center sm:text-left'>
         Artikel
       </h1>
       <ul className='grid gap-y-6 mb-20'>
