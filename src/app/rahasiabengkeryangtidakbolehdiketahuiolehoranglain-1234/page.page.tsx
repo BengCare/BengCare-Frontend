@@ -1,8 +1,10 @@
-'use client'
-import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation'; // Use this for accessing query parameters
-import api from '@/lib/api'; // Ensure your API client is imported correctly
+'use client';
 import { Metadata } from 'next';
+import { useSearchParams } from 'next/navigation'; // Use this for accessing query parameters
+import React, { useEffect, useState } from 'react';
+import { Suspense } from 'react';
+
+import api from '@/lib/api'; // Ensure your API client is imported correctly
 
 interface Image {
   image_name: string;
@@ -27,10 +29,10 @@ interface Bengkel {
 
 function toTitleCase(str: string) {
   return str
-      .toLowerCase() // Convert the entire string to lowercase
-      .split(' ') // Split the string into words
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
-      .join(' '); // Join the words back into a single string
+    .toLowerCase() // Convert the entire string to lowercase
+    .split(' ') // Split the string into words
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+    .join(' '); // Join the words back into a single string
 }
 
 export const metadata: Metadata = {
@@ -89,18 +91,32 @@ const BengkelTempPage = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <>
+    <div>
       <div className='layout pb-10'>
         {data && data.length > 0 ? (
           <ul>
             {data.map((bengkel, index) => (
               <li key={bengkel.id} className='mt-10'>
-                <h2 className='text-xl font-bold'>{index+1}. {toTitleCase(bengkel.name)}</h2>
-                <p><strong>Address:</strong> {bengkel.address}</p>
-                <p><strong>Description:</strong> {bengkel.description}</p>
-                <p><strong>Open Hours:</strong> {bengkel.open_hour} - {bengkel.close_hour}</p>
-                <p><strong>Available Vehicle Types:</strong> {bengkel.available_vehicle_type.join(', ')}</p>
-                <p><strong>Info From:</strong> {bengkel.info_from}</p>
+                <h2 className='text-xl font-bold'>
+                  {index + 1}. {toTitleCase(bengkel.name)}
+                </h2>
+                <p>
+                  <strong>Address:</strong> {bengkel.address}
+                </p>
+                <p>
+                  <strong>Description:</strong> {bengkel.description}
+                </p>
+                <p>
+                  <strong>Open Hours:</strong> {bengkel.open_hour} -{' '}
+                  {bengkel.close_hour}
+                </p>
+                <p>
+                  <strong>Available Vehicle Types:</strong>{' '}
+                  {bengkel.available_vehicle_type.join(', ')}
+                </p>
+                <p>
+                  <strong>Info From:</strong> {bengkel.info_from}
+                </p>
 
                 <div className='images'>
                   {bengkel.images.map((img, index) => (
@@ -123,8 +139,16 @@ const BengkelTempPage = () => {
           <p>No data available</p>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
-export default BengkelTempPage;
+const BengkelTempPageWrapper = () => {
+  return (
+    <Suspense>
+      <BengkelTempPage />
+    </Suspense>
+  );
+};
+
+export default BengkelTempPageWrapper;
