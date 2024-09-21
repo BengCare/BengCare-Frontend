@@ -119,7 +119,7 @@ const BengkelTempPage = () => {
                 </p>
 
                 <div className='images'>
-                  {bengkel.images.map((img, index) => (
+                  {bengkel.images?.map((img, index) => (
                     <p key={index}>- {img.image_path}</p>
                   ))}
                 </div>
