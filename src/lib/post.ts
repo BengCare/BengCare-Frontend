@@ -16,6 +16,7 @@ export interface PostData {
   image: string;
   desc: string;
   readTime: number;
+  topics: string[];
 }
 
 function titleToSlug(title: string): string {
@@ -39,17 +40,25 @@ async function calculateReadTime(content: string): Promise<number> {
   return readTime;
 }
 
-export function getAllPostSlugs() {
+export function getAllPostSlugs(topics: string[]) {
   const fileNames = fs.readdirSync(postsDirectory);
+  const isFiltered = topics?.length > 0;
 
-  return fileNames.map((fileName) => {
+  const allPosts = fileNames.map((fileName) => {
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
 
     const processedContent = remark().use(html).process(matterResult.content);
 
+    const postTopics = matterResult.data.topics as string[];
     const _contentHtml = processedContent.toString();
+
+    let score = 0;
+    if (isFiltered) {
+      const commonTopics = postTopics.filter((topic) => topics.includes(topic));
+      score = commonTopics.length;
+    }
 
     return {
       params: {
@@ -58,9 +67,19 @@ export function getAllPostSlugs() {
         image: matterResult.data.image as string,
         desc: matterResult.data.desc.slice(0, 550) as string,
         date: matterResult.data.date as string,
+        topics: postTopics,
+        score,
       },
     };
   });
+
+  if (isFiltered) {
+    return allPosts
+      .filter((post) => post.params.score > 0)
+      .sort((a, b) => b.params.score - a.params.score);
+  }
+
+  return allPosts;
 }
 
 export async function getPostData(slug: string): Promise<PostData> {
@@ -98,5 +117,50 @@ export async function getPostData(slug: string): Promise<PostData> {
     image: matterResult.data.image as string,
     desc: matterResult.data.desc.slice(0, 150) as string,
     readTime,
+    topics: matterResult.data.topics as string[],
   };
+}
+
+export function getRelatedArticles(
+  currentSlug: string,
+  currentTopics: string[],
+) {
+  const fileNames = fs.readdirSync(postsDirectory);
+
+  const allPosts = fileNames
+    .map((fileName) => {
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const matterResult = matter(fileContents);
+
+      const postTopics = matterResult.data.topics as string[];
+
+      const commonTopics = postTopics.filter((topic) =>
+        currentTopics.includes(topic),
+      );
+
+      const score = commonTopics.length;
+
+      return {
+        params: {
+          slug: titleToSlug(matterResult.data.title as string),
+          title: matterResult.data.title as string,
+          image: matterResult.data.image as string,
+          score,
+        },
+      };
+    })
+    .filter((post) => post.params.slug != currentSlug);
+
+  const maxScore =
+    allPosts.length > 0
+      ? Math.max(...allPosts.map((post) => post.params.score))
+      : 0;
+
+  const relatedPosts = allPosts
+    .filter((post) => post.params.score >= maxScore)
+    .sort((a, b) => b.params.score - a.params.score)
+    .slice(0, 5);
+
+  return relatedPosts;
 }

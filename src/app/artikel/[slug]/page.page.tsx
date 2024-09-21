@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import SubscriptionForm from '@/components/ui/subscription-form';
-import { getAllPostSlugs, getPostData } from '@/lib/post';
+import { getPostData, getRelatedArticles } from '@/lib/post';
 
 interface PostPageProps {
   params: { slug: string };
@@ -28,11 +28,12 @@ export async function generateMetadata({
 
 export default async function PostPage({ params }: PostPageProps) {
   const postData = await getPostData(params.slug);
-  const allPostsData = getAllPostSlugs();
 
   if (!postData) {
     notFound();
   }
+
+  const allPostsData = getRelatedArticles(params.slug, postData.topics);
 
   return (
     <article className='layout'>
@@ -79,28 +80,25 @@ export default async function PostPage({ params }: PostPageProps) {
             </h3>
 
             <ul className='grid gap-y-3'>
-              {allPostsData
-                .filter((data) => data.params.slug != params.slug)
-                .slice(0, 5)
-                .map(({ params }) => (
-                  <li key={params.slug}>
-                    <Link href={`/artikel/${params.slug}`}>
-                      <div className='flex items-center gap-4'>
-                        <Image
-                          src={params.image}
-                          alt={params.title}
-                          height={250}
-                          width={250}
-                          className='object-cover w-24 h-20 rounded-lg'
-                        />
+              {allPostsData.map(({ params }) => (
+                <li key={params.slug}>
+                  <Link href={`/artikel/${params.slug}`}>
+                    <div className='flex items-center gap-4'>
+                      <Image
+                        src={params.image}
+                        alt={params.title}
+                        height={250}
+                        width={250}
+                        className='object-cover w-24 h-20 rounded-lg'
+                      />
 
-                        <p className='font-medium text-justify line-clamp-3'>
-                          {params.title.replace(/-/g, ' ')}
-                        </p>
-                      </div>
-                    </Link>
-                  </li>
-                ))}
+                      <p className='font-medium text-justify line-clamp-3'>
+                        {params.title.replace(/-/g, ' ')}
+                      </p>
+                    </div>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
