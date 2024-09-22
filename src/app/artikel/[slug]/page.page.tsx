@@ -5,16 +5,10 @@ import { notFound } from 'next/navigation';
 
 import SubscriptionForm from '@/components/ui/subscription-form';
 import { getPostData, getRelatedArticles } from '@/lib/post';
+import { toTitleCase } from '@/lib/util';
 
 interface PostPageProps {
   params: { slug: string };
-}
-
-function toTitleCase(str: string): string {
-  return str.replace(
-    /\w\S*/g,
-    (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase(),
-  );
 }
 
 export async function generateMetadata({

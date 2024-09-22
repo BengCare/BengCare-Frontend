@@ -5,6 +5,7 @@ import Link from 'next/link';
 import TagFilter from '@/app/artikel/tag-filter';
 import SubscriptionForm from '@/components/ui/subscription-form';
 import { getAllPostSlugs } from '@/lib/post';
+import { toTitleCase } from '@/lib/util';
 
 export const metadata: Metadata = {
   title: 'Artikel | BengCare',
@@ -48,6 +49,9 @@ export default function Artikel({
                       </p>
                       <p className='text-xs text-gray-400 mt-4'>
                         {params.date}
+                      </p>
+                      <p className='text-xs text-gray-400 mt-1'>
+                        Topik: {toTitleCase(params.topics.join(', '))}
                       </p>
                     </div>
                   </div>

@@ -157,10 +157,28 @@ export function getRelatedArticles(
       ? Math.max(...allPosts.map((post) => post.params.score))
       : 0;
 
-  const relatedPosts = allPosts
+  let relatedPosts = allPosts
     .filter((post) => post.params.score >= maxScore)
     .sort((a, b) => b.params.score - a.params.score)
     .slice(0, 5);
+
+  if (relatedPosts.length < 5) {
+    const remainingPosts = allPosts.filter(
+      (post) => !relatedPosts.includes(post),
+    );
+
+    for (let i = remainingPosts.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [remainingPosts[i], remainingPosts[j]] = [
+        remainingPosts[j],
+        remainingPosts[i],
+      ];
+    }
+
+    relatedPosts = relatedPosts.concat(
+      remainingPosts.slice(0, 5 - relatedPosts.length),
+    );
+  }
 
   return relatedPosts;
 }

@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { Suspense } from 'react';
 
 import api from '@/lib/api'; // Ensure your API client is imported correctly
+import { toTitleCase } from '@/lib/util';
 
 interface Image {
   image_name: string;
@@ -25,14 +26,6 @@ interface Bengkel {
   list_of_service: string[];
   is_promise: boolean;
   info_from: string;
-}
-
-function toTitleCase(str: string) {
-  return str
-    .toLowerCase() // Convert the entire string to lowercase
-    .split(' ') // Split the string into words
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
-    .join(' '); // Join the words back into a single string
 }
 
 export const metadata: Metadata = {
