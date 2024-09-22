@@ -86,7 +86,7 @@ export default async function PostPage({ params }: PostPageProps) {
                         className='object-cover w-24 h-20 rounded-lg'
                       />
 
-                      <p className='font-medium text-justify line-clamp-3'>
+                      <p className='font-medium line-clamp-3'>
                         {params.title.replace(/-/g, ' ')}
                       </p>
                     </div>
