@@ -1,40 +1,11 @@
 'use client';
 
-import { useMutation } from '@tanstack/react-query';
 import Image from 'next/image';
-import { FormProvider, useForm } from 'react-hook-form';
 
 import Accordion from '@/components/Accordion';
-import Button from '@/components/Button';
-import LogoInput from '@/components/LogoInput';
-import useMutationToast from '@/hooks/useMutationToast';
-import api from '@/lib/api';
-
-interface EarlyAccess {
-  email: string;
-  files: string;
-}
+import SubscriptionForm from '@/components/ui/subscription-form';
 
 export default function Home() {
-  const methods = useForm<EarlyAccess>();
-  const { handleSubmit } = methods;
-
-  const { mutate, isPending } = useMutationToast<void, EarlyAccess>(
-    useMutation({
-      mutationFn: (data: EarlyAccess) => api.post('/user/send_to_mail', data),
-    }),
-    {
-      loading: 'Mendaftar...',
-      success: 'Terima kasih sudah mendaftar!',
-      error: 'Terjadi kesalahan. Coba lagi nanti.',
-    },
-  );
-
-  const onSubmit = (data: EarlyAccess) => {
-    data.files = 'send_mail_web';
-    mutate(data);
-  };
-
   return (
     <main>
       <div className='layout'>
@@ -65,34 +36,11 @@ export default function Home() {
               Bergabung sekarang untuk menjadi pengguna BengCare dan nikmati
               informasi terkini dari BengCare.
             </p>
-            <FormProvider {...methods}>
-              <form
-                className='flex gap-[6px] sm:gap-[12px] md:gap-[20px] w-full'
-                onSubmit={handleSubmit(onSubmit)}
-              >
-                <LogoInput
-                  {...methods.register('email', {
-                    required: 'Email is required',
-                  })}
-                  className='w-full gap-[6px] lg:gap-[10px]'
-                  src='/homepage/email-input.png'
-                  iconWidth={18}
-                  iconHeight={16}
-                  id='email'
-                  name='email'
-                  placeholder='Masukkan email anda'
-                  inputClassName='text-xs lg:text-base focus:bg-transparent active:bg-transparent'
-                  required
-                />
-                <Button
-                  isPending={isPending}
-                  type='submit'
-                  className='text-sm lg:text-base'
-                >
-                  GABUNG
-                </Button>
-              </form>
-            </FormProvider>
+
+            <div className='max-w-md'>
+              <SubscriptionForm />
+            </div>
+
             <div className='h-[72px]'></div>
             <div className='absolute bottom-0'>
               <div className='flex flex-row gap-[10px] sm:gap-[18px]'>

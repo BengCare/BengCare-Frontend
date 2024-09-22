@@ -1,12 +1,13 @@
 import { cva, VariantProps } from 'class-variance-authority';
 import { Eye, EyeOff, LucideIcon } from 'lucide-react';
+import Image, { ImageProps } from 'next/image';
 import * as React from 'react';
 import { get, RegisterOptions, useFormContext } from 'react-hook-form';
 
 import clsxm from '@/lib/clsxm';
 
 const inputVariants = cva(
-  'flex w-full rounded-lg text-gray-800 border-2 border-gray-200 focus:outline-none focus:ring-4 placeholder:text-gray-400',
+  'flex w-full rounded-lg text-gray-800 border border-gray-200 shadow-sm focus:outline-none focus:ring-4 placeholder:text-gray-400',
   {
     variants: {
       sizes: {
@@ -33,6 +34,7 @@ type InputProps = {
   label: string | null;
   validation?: RegisterOptions;
   leftIcon?: LucideIcon | string;
+  img?: ImageProps;
   unregistered?: boolean;
   containerClassName?: string;
 } & React.ComponentPropsWithoutRef<'input'> &
@@ -44,6 +46,7 @@ export default function Input({
   validation,
   containerClassName,
   leftIcon: LeftIcon,
+  img,
   unregistered = false,
   type = 'text',
   disabled,
@@ -83,7 +86,7 @@ export default function Input({
       )}
 
       <div className={clsxm('relative', withLabel && 'mt-1.5')}>
-        {LeftIcon && (
+        {LeftIcon && !img && (
           <LeftIcon
             className={clsxm(
               'pointer-events-none absolute top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400',
@@ -92,6 +95,15 @@ export default function Input({
             )}
           />
         )}
+
+        {img && (
+          <Image
+            {...img}
+            alt={img.alt ?? 'Input Icon'}
+            className='pointer-events-none absolute top-1/2 -translate-y-1/2 left-4 w-5 h-5 text-gray-400'
+          />
+        )}
+
         <input
           {...register(id, validation)}
           {...rest}
