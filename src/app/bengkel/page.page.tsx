@@ -35,28 +35,28 @@ export default function BengkelMainPage() {
     {
       title: 'Signage',
       desc: [
-        'RepairPal Certified Dealers are provided free signage to showcase your prices are fair and help you build trust with customers. This includes indoor, outdoor, and service advisor desk signage.',
-        'RepairPal Certification calls out your dedication to fair pricing and high-quality work and our goal is to make it easier for you to show off your qualifications to potential customers at all stages of the car repair process.',
+        'BengCare Certified Dealers are provided free signage to showcase your prices are fair and help you build trust with customers. This includes indoor, outdoor, and service advisor desk signage.',
+        'BengCare Certification calls out your dedication to fair pricing and high-quality work and our goal is to make it easier for you to show off your qualifications to potential customers at all stages of the car repair process.',
       ],
     },
     {
       title: 'Marketing Resources',
       desc: [
         "Your Marketing team will receive content and designs to showcase your validated fair pricing, and we provide custom assets based on your store's needs. This includes signage, full access to our marketing resources and social media.",
-        "We also provide the Fair Price Estimator to put on your website to help increase conversion and boost your Google ranking by leveraging RepairPal's industry leading SEO.",
+        "We also provide the Fair Price Estimator to put on your website to help increase conversion and boost your Google ranking by leveraging BengCare's industry leading SEO.",
       ],
     },
     {
       title: 'Training & Account Management',
       desc: [
-        "Improve customer conversion and increase the value you get from RepairPal with your Dedicated Account Manager. We'll meet with you regularly to review your KPIs, metrics, and store performance to ensure you are maximizing revenue.",
-        "Your service advisors and BDC team will get hands-on training on the features of RepairPal's Fair Price Estimator, leveraging the RepairPal brand to overcome price objections, and turning shoppers into customers. You'll get ongoing training and access to our video resource center for refresher and new employee training on RepairPal's tools.",
+        "Improve customer conversion and increase the value you get from BengCare with your Dedicated Account Manager. We'll meet with you regularly to review your KPIs, metrics, and store performance to ensure you are maximizing revenue.",
+        "Your service advisors and BDC team will get hands-on training on the features of BengCare's Fair Price Estimator, leveraging the BengCare brand to overcome price objections, and turning shoppers into customers. You'll get ongoing training and access to our video resource center for refresher and new employee training on BengCare's tools.",
       ],
     },
     {
       title: 'Talk Tracks',
       desc: [
-        'Service Advisors and BDC will be trained on how to share your RepairPal validation and use the Estimator to overcome price objections. Your staff will receive talk tracks and your BDC team will receive assets to keep at their desk to reference when booking appointments.',
+        'Service Advisors and BDC will be trained on how to share your BengCare validation and use the Estimator to overcome price objections. Your staff will receive talk tracks and your BDC team will receive assets to keep at their desk to reference when booking appointments.',
       ],
     },
   ];
@@ -70,7 +70,7 @@ export default function BengkelMainPage() {
             dollar market
           </h1>
           <p className='text-gray-800 md:text-lg'>
-            RepairPal has helped service departments increase customer pay
+            BengCare has helped service departments increase customer pay
             hours, added service recommendations, and gross profit by directly
             overcoming the dominant reason customers stop getting their vehicles
             repaired at dealerships post warranty: price perception.{' '}
@@ -100,14 +100,14 @@ export default function BengkelMainPage() {
       <section className='bg-gray-100'>
         <div className='min-h-[calc(100vh-100px)] layout flex flex-col md:flex-row items-center gap-y-20 py-20'>
           <div className='md:w-1/2 space-y-8'>
-            <p className='md:text-lg'>Why RepairPal?</p>
+            <p className='md:text-lg'>Why BengCare?</p>
             <h2 className='text-3xl md:text-5xl font-semibold md:leading-tight'>
               Negative price perception is hurting your{' '}
               <span className='text-primary-700'>revenue potential</span>
             </h2>
 
             <p className='md:text-lg'>
-              RepairPal&apos;s Fair Price Estimator provides 3rd party
+              BengCare&apos;s Fair Price Estimator provides 3rd party
               validation that your prices are fair and builds trust with
               consumers.
             </p>
@@ -169,7 +169,7 @@ export default function BengkelMainPage() {
             </ul>
 
             <p className='md:text-lg'>
-              RepairPal&apos;s Fair Price Estimator empowers Service Advisors
+              BengCare&apos;s Fair Price Estimator empowers Service Advisors
               with 3rd party proof of fair prices to combat price objections and
               provide confidence that your dealership is fair priced.{' '}
             </p>
@@ -179,7 +179,7 @@ export default function BengkelMainPage() {
 
       <section className='bg-gray-100 py-14'>
         <div className='layout max-w-4xl mx-auto space-y-4'>
-          <p className='md:text-lg'>Become RepairPal Certified.</p>
+          <p className='md:text-lg'>Become BengCare Certified.</p>
           <h2 className='text-3xl md:text-4xl font-semibold'>
             We&apos;ll give you the tools to generate more{' '}
             <span className='text-primary-700'>profit</span>
