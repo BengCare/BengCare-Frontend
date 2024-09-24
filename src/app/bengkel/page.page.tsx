@@ -5,78 +5,81 @@ import clsxm from '@/lib/clsxm';
 
 export default function BengkelMainPage() {
   const MOCK_STATS_DATA = [
-    { title: 'Customer Pay Hours', desc: 'Per Repair Order', number: '0,23' },
+    { title: 'Akses Pasar Digital', desc: 'Peningkatan Pelanggan Baru', number: '28%' },
     {
-      title: 'Added Service Recommendations',
-      desc: 'Closing Rate',
-      number: '14%',
+      title: 'Peningkatan Pendapatan',
+      desc: 'Lewat BengCare',
+      number: '21%',
     },
     {
-      title: 'Monthly Gross Profit',
-      desc: 'After paying technicians',
-      number: '$23,000',
+      title: 'Efisiensi Operasional',
+      desc: 'Sistem Manajemen BengCare',
+      number: '35%',
     },
   ];
 
   const MOCK_LIST_DATA = [
-    { value: 'Essential tool for Service Advisors and BDC' },
     {
-      value: 'Estimates reflect high quality and fair (not low) pricing',
+      value: 'Business AI Assistant',
       children: [
-        { value: 'Labor Time/Hours: MOTOR Labor' },
-        { value: 'Parts: OEM MSRP and quality aftermarket MSRP' },
-        { value: 'Labor Rates: Local dealer and quality independents' },
+        { value: 'Seperti memiliki asisten pribadi' },
+        { value: 'Memudahkan pengambilan keputusan' },
+        { value: 'Visualisasi Data' },
       ],
     },
-    { value: 'Presented as a range' },
+    { value: 'Manajemen Keuangan' },
+    { value: 'Manajemen Suku Cadangan' },
+    { value: 'Manajemen Montir' }
   ];
 
   const MOCK_BENEFIT_DATA = [
     {
-      title: 'Signage',
+      title: 'BengCare App (untuk bengkel)',
       desc: [
-        'BengCare Certified Dealers are provided free signage to showcase your prices are fair and help you build trust with customers. This includes indoor, outdoor, and service advisor desk signage.',
-        'BengCare Certification calls out your dedication to fair pricing and high-quality work and our goal is to make it easier for you to show off your qualifications to potential customers at all stages of the car repair process.',
+        'Melalui aplikasi ini, Anda dapat dengan mudah mengelola bengkel melalui satu platform yang terintegrasi. Mulai dari melihat analitik pengunjung harian, hingga mengatur kuota servis setiap hari, semuanya bisa dilakukan dalam satu aplikasi.',
+        'Fitur chat memudahkan komunikasi dengan pelanggan, sementara riwayat pesanan dan servis dapat dilacak dan diatur dengan detail, mulai dari analisa hingga penentuan biaya.',
       ],
+      media: <iframe
+        width='480'
+        height='270'
+        src='https://www.youtube.com/embed/nCeEQVYyLLk?si=jZ1mCIRPgbGUUYfQ'
+        title='YouTube video player'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        referrerPolicy='strict-origin-when-cross-origin'
+        allowFullScreen
+        className='border-none w-full rounded-lg shrink-0'
+        style={{ border: 'none' }}
+      />
     },
     {
-      title: 'Marketing Resources',
+      title: 'Sistem Manajemen BengCare',
       desc: [
-        "Your Marketing team will receive content and designs to showcase your validated fair pricing, and we provide custom assets based on your store's needs. This includes signage, full access to our marketing resources and social media.",
-        "We also provide the Fair Price Estimator to put on your website to help increase conversion and boost your Google ranking by leveraging BengCare's industry leading SEO.",
+        "BengCare hadir dengan sistem manajemen bengkel yang memudahkan Anda dalam manajemen bisnis Anda. Dengan BengCare, Anda dapat mengelola keuangan, montir, dan suku cadang dengan mudah.",
+        "Fitur-fitur ini akan membantu Anda dalam mengoptimalkan bisnis Anda, sehingga Anda dapat fokus untuk meningkatkan kepuasaan pelanggan dengan meningkatkan kualitas servis dan pelayanan Anda.",
       ],
-    },
-    {
-      title: 'Training & Account Management',
-      desc: [
-        "Improve customer conversion and increase the value you get from BengCare with your Dedicated Account Manager. We'll meet with you regularly to review your KPIs, metrics, and store performance to ensure you are maximizing revenue.",
-        "Your service advisors and BDC team will get hands-on training on the features of BengCare's Fair Price Estimator, leveraging the BengCare brand to overcome price objections, and turning shoppers into customers. You'll get ongoing training and access to our video resource center for refresher and new employee training on BengCare's tools.",
-      ],
-    },
-    {
-      title: 'Talk Tracks',
-      desc: [
-        'Service Advisors and BDC will be trained on how to share your BengCare validation and use the Estimator to overcome price objections. Your staff will receive talk tracks and your BDC team will receive assets to keep at their desk to reference when booking appointments.',
-      ],
-    },
+      media: <Image
+        src='/homepage/coming-soon.png'
+        alt='Placeholder Image'
+        width={455}
+        height={303}
+        className='w-full'
+      />
+    }
   ];
 
   return (
     <div>
-      <section className='min-h-[calc(100vh-100px)] layout flex flex-col items-center gap-20 py-20'>
+      <section className='min-h-[calc(100vh-100px)] layout flex flex-col items-center gap-10 py-20'>
         <div className='space-y-4 text-center max-w-4xl'>
           <h1 className='text-4xl md:text-5xl font-semibold'>
-            <span className='text-primary-700'>Unlock</span> a $266 billion
-            dollar market
+            <span className='text-primary-700'>Tingkatkan</span> pendapatan Anda dengan <span className='text-primary-500'>BengCare</span>
           </h1>
           <p className='text-gray-800 md:text-lg'>
-            BengCare has helped service departments increase customer pay
-            hours, added service recommendations, and gross profit by directly
-            overcoming the dominant reason customers stop getting their vehicles
-            repaired at dealerships post warranty: price perception.{' '}
+            BengCare merupakan sebuah aplikasi yang <span className='text-primary-700 font-semibold'>meningkatkan pendapatan</span> bengkel-bengkel UMKM di Indonesia dengan memberikan solusi untuk masalah kepercayaan pelanggan melalui sistem rekomendasi kami yang menjamin kualitas dan harga yang adil.
           </p>
         </div>
 
+        <p className='text-primary-700 md:text-2xl font-semibold mt-14'>Mengapa Bergabung dengan BengCare?</p>
         <div className='w-full flex flex-col md:flex-row items-center justify-between gap-y-10'>
           {MOCK_STATS_DATA.map(({ title, desc, number }, index) => (
             <div key={index} className='text-center'>
@@ -93,23 +96,21 @@ export default function BengkelMainPage() {
           href='/registrasi-bengkel'
           className='inline-flex items-center justify-center py-[8px] px-[16px] min-h-11 bg-primary-700 rounded-lg text-white font-medium hover:bg-primary-700/90'
         >
-          Gabung BengCare
+          Daftarkan Bengkel
         </Link>
       </section>
 
       <section className='bg-gray-100'>
-        <div className='min-h-[calc(100vh-100px)] layout flex flex-col md:flex-row items-center gap-y-20 py-20'>
-          <div className='md:w-1/2 space-y-8'>
-            <p className='md:text-lg'>Why BengCare?</p>
+        <div className='min-h-[calc(100vh-100px)] layout flex flex-col md:flex-row items-center gap-y-0 py-20'>
+          <div className='md:w-1/2 space-y-4'>
+            <p className='md:text-lg'>Kenapa BengCare?</p>
             <h2 className='text-3xl md:text-5xl font-semibold md:leading-tight'>
-              Negative price perception is hurting your{' '}
-              <span className='text-primary-700'>revenue potential</span>
+              Manajemen bengkel yang salah menghalangi{' '}
+              <span className='text-primary-700'>pertumbuhan bengkel</span> Anda!
             </h2>
 
-            <p className='md:text-lg'>
-              BengCare&apos;s Fair Price Estimator provides 3rd party
-              validation that your prices are fair and builds trust with
-              consumers.
+            <p className='md:text-lg pt-6'>
+              BengCare hadir untuk menemukan Anda dengan pelanggan baru, dan juga mengoptimalkan bisnis Anda dengan sistem:
             </p>
 
             <ul className='list-disc list-inside md:text-lg'>
@@ -143,35 +144,32 @@ export default function BengkelMainPage() {
       <section className='min-h-[calc(100vh-100px)] layout flex flex-col items-center gap-12 py-20'>
         <div className='text-center space-y-2'>
           <h2 className='text-3xl md:text-4xl font-semibold'>
-            Maximize earnings for the whole service team
+            Maksimalkan potensi bisnis Anda dengan <span className='text-primary-500'>BengCare</span>!
           </h2>
           <p className='md:text-lg text-gray-800'>
-            Increase same day sales. Book more appointments. Decrease declined
-            services.
+            Akses pasar digital yang lebih luas, tingkatkan pendapatan dan efisiensi operasional Anda
           </p>
         </div>
 
         <div className='max-w-4xl rounded-lg overflow-hidden border shadow-md divide-y'>
           <div className='bg-gray-100 p-4 md:p-6'>
-            <h3 className='md:text-lg font-semibold'>Service Advisor</h3>
+            <h3 className='md:text-lg font-semibold'>Dengan BengCare, Anda dapat</h3>
           </div>
 
           <div className='p-6 md:p-8 space-y-6'>
             <h4 className='text-2xl md:text-3xl font-semibold'>
-              Sell more work with{' '}
-              <span className='text-primary-700'>ease.</span>
+              Tingkatkan{" "}
+              <span className='text-primary-700'>performa bisnis</span> Anda lewat
             </h4>
 
             <ul className='list-disc list-inside md:text-lg'>
-              <li>Close more Added Service Recommendations</li>
-              <li>Save time creating estimates</li>
-              <li>Increase hours per repair order</li>
+              <li>Akses ke pasar digital yang lebih besar</li>
+              <li>Pengelolaan bisnis yang lebih efisien</li>
+              <li>Asisten AI Pribadi</li>
             </ul>
 
             <p className='md:text-lg'>
-              BengCare&apos;s Fair Price Estimator empowers Service Advisors
-              with 3rd party proof of fair prices to combat price objections and
-              provide confidence that your dealership is fair priced.{' '}
+              Aplikasi BengCare membantu Anda untuk mengurus segala hal bisnis Anda dari bertemu dengan pelanggan hingga manajemen servis, montir, keuangan, dan analisis data bisnis Anda.
             </p>
           </div>
         </div>
@@ -179,16 +177,15 @@ export default function BengkelMainPage() {
 
       <section className='bg-gray-100 py-14'>
         <div className='layout max-w-4xl mx-auto space-y-4'>
-          <p className='md:text-lg'>Become BengCare Certified.</p>
+          <p className='md:text-lg'>Gabung dengan BengCare</p>
           <h2 className='text-3xl md:text-4xl font-semibold'>
-            We&apos;ll give you the tools to generate more{' '}
-            <span className='text-primary-700'>profit</span>
+            Kami maksimalkan <span className='text-primary-700'>pendapatan</span> bisnis Anda
           </h2>
         </div>
       </section>
 
       <section className='min-h-[calc(100vh-100px)] layout flex flex-col items-center gap-20 py-20'>
-        {MOCK_BENEFIT_DATA.map(({ title, desc }, index) => (
+        {MOCK_BENEFIT_DATA.map(({ title, desc, media }, index) => (
           <div key={index} className='flex flex-col lg:flex-row gap-10'>
             <div
               className={clsxm(
@@ -196,13 +193,7 @@ export default function BengkelMainPage() {
                 index % 2 == 0 ? 'lg:order-1' : 'lg:order-2',
               )}
             >
-              <Image
-                src='/homepage/coming-soon.png'
-                alt='Placeholder Image'
-                width={455}
-                height={303}
-                className='w-full'
-              />
+              {media}
             </div>
             <div
               className={clsxm(
@@ -224,15 +215,14 @@ export default function BengkelMainPage() {
       <section className='bg-gray-100 py-14'>
         <div className='layout space-y-9 flex flex-col items-center'>
           <h1 className='text-4xl md:text-5xl font-semibold text-center'>
-            Let&apos;s grow your{' '}
-            <span className='text-primary-700'>Fixed Ops business</span>
+            Ayo tumbuhkan bisnis Anda dengan <span className='text-primary-500'>BengCare</span>
           </h1>
 
           <Link
             href='/registrasi-bengkel'
             className='inline-flex items-center justify-center py-[8px] px-[16px] min-h-11 bg-primary-700 rounded-lg text-white font-medium hover:bg-primary-700/90'
           >
-            Gabung BengCare
+            Daftarkan Bengkel
           </Link>
         </div>
       </section>
@@ -243,9 +233,9 @@ export default function BengkelMainPage() {
             Di dukung oleh
           </h3>
           <div className='flex flex-col gap-y-4 md:flex-row items-center justify-evenly'>
-            <div className='w-1/3 flex justify-center'>
+          <div className='w-1/3 flex justify-center'>
               <Image
-                src='/google.png'
+                src='/kemendikbud.png'
                 alt='Google Logo'
                 width={512}
                 height={300}
@@ -259,6 +249,15 @@ export default function BengkelMainPage() {
                 width={1000}
                 height={417}
                 className='w-28'
+              />
+            </div>
+            <div className='w-1/3 flex justify-center'>
+              <Image
+                src='/google.png'
+                alt='Google Logo'
+                width={512}
+                height={300}
+                className='w-40'
               />
             </div>
             <div className='w-1/3 flex justify-center'>
