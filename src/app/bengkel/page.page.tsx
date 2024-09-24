@@ -5,7 +5,11 @@ import clsxm from '@/lib/clsxm';
 
 export default function BengkelMainPage() {
   const MOCK_STATS_DATA = [
-    { title: 'Akses Pasar Digital', desc: 'Peningkatan Pelanggan Baru', number: '28%' },
+    {
+      title: 'Akses Pasar Digital',
+      desc: 'Peningkatan Pelanggan Baru',
+      number: '28%',
+    },
     {
       title: 'Peningkatan Pendapatan',
       desc: 'Lewat BengCare',
@@ -29,7 +33,7 @@ export default function BengkelMainPage() {
     },
     { value: 'Manajemen Keuangan' },
     { value: 'Manajemen Suku Cadangan' },
-    { value: 'Manajemen Montir' }
+    { value: 'Manajemen Montir' },
   ];
 
   const MOCK_BENEFIT_DATA = [
@@ -39,32 +43,36 @@ export default function BengkelMainPage() {
         'Melalui aplikasi ini, Anda dapat dengan mudah mengelola bengkel melalui satu platform yang terintegrasi. Mulai dari melihat analitik pengunjung harian, hingga mengatur kuota servis setiap hari, semuanya bisa dilakukan dalam satu aplikasi.',
         'Fitur chat memudahkan komunikasi dengan pelanggan, sementara riwayat pesanan dan servis dapat dilacak dan diatur dengan detail, mulai dari analisa hingga penentuan biaya.',
       ],
-      media: <iframe
-        width='480'
-        height='270'
-        src='https://www.youtube.com/embed/nCeEQVYyLLk?si=jZ1mCIRPgbGUUYfQ'
-        title='YouTube video player'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-        referrerPolicy='strict-origin-when-cross-origin'
-        allowFullScreen
-        className='border-none w-full rounded-lg shrink-0'
-        style={{ border: 'none' }}
-      />
+      media: (
+        <iframe
+          width='480'
+          height='270'
+          src='https://www.youtube.com/embed/nCeEQVYyLLk?si=jZ1mCIRPgbGUUYfQ'
+          title='YouTube video player'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+          referrerPolicy='strict-origin-when-cross-origin'
+          allowFullScreen
+          className='border-none w-full rounded-lg shrink-0'
+          style={{ border: 'none' }}
+        />
+      ),
     },
     {
       title: 'Sistem Manajemen BengCare',
       desc: [
-        "BengCare hadir dengan sistem manajemen bengkel yang memudahkan Anda dalam manajemen bisnis Anda. Dengan BengCare, Anda dapat mengelola keuangan, montir, dan suku cadang dengan mudah.",
-        "Fitur-fitur ini akan membantu Anda dalam mengoptimalkan bisnis Anda, sehingga Anda dapat fokus untuk meningkatkan kepuasaan pelanggan dengan meningkatkan kualitas servis dan pelayanan Anda.",
+        'BengCare hadir dengan sistem manajemen bengkel yang memudahkan Anda dalam manajemen bisnis Anda. Dengan BengCare, Anda dapat mengelola keuangan, montir, dan suku cadang dengan mudah.',
+        'Fitur-fitur ini akan membantu Anda dalam mengoptimalkan bisnis Anda, sehingga Anda dapat fokus untuk meningkatkan kepuasaan pelanggan dengan meningkatkan kualitas servis dan pelayanan Anda.',
       ],
-      media: <Image
-        src='/homepage/coming-soon.png'
-        alt='Placeholder Image'
-        width={455}
-        height={303}
-        className='w-full'
-      />
-    }
+      media: (
+        <Image
+          src='/homepage/coming-soon.png'
+          alt='Placeholder Image'
+          width={455}
+          height={303}
+          className='w-full'
+        />
+      ),
+    },
   ];
 
   return (
@@ -72,14 +80,23 @@ export default function BengkelMainPage() {
       <section className='min-h-[calc(100vh-100px)] layout flex flex-col items-center gap-10 py-20'>
         <div className='space-y-4 text-center max-w-4xl'>
           <h1 className='text-4xl md:text-5xl font-semibold'>
-            <span className='text-primary-700'>Tingkatkan</span> pendapatan Anda dengan <span className='text-primary-500'>BengCare</span>
+            <span className='text-primary-700'>Tingkatkan</span> pendapatan Anda
+            dengan <span className='text-primary-500'>BengCare</span>
           </h1>
           <p className='text-gray-800 md:text-lg'>
-            BengCare merupakan sebuah aplikasi yang <span className='text-primary-700 font-semibold'>meningkatkan pendapatan</span> bengkel-bengkel UMKM di Indonesia dengan memberikan solusi untuk masalah kepercayaan pelanggan melalui sistem rekomendasi kami yang menjamin kualitas dan harga yang adil.
+            BengCare merupakan sebuah aplikasi yang{' '}
+            <span className='text-primary-700 font-semibold'>
+              meningkatkan pendapatan
+            </span>{' '}
+            bengkel-bengkel UMKM di Indonesia dengan memberikan solusi untuk
+            masalah kepercayaan pelanggan melalui sistem rekomendasi kami yang
+            menjamin kualitas dan harga yang adil.
           </p>
         </div>
 
-        <p className='text-primary-700 md:text-2xl font-semibold mt-14'>Mengapa Bergabung dengan BengCare?</p>
+        <p className='text-primary-700 md:text-2xl font-semibold mt-14'>
+          Mengapa Bergabung dengan BengCare?
+        </p>
         <div className='w-full flex flex-col md:flex-row items-center justify-between gap-y-10'>
           {MOCK_STATS_DATA.map(({ title, desc, number }, index) => (
             <div key={index} className='text-center'>
@@ -106,11 +123,13 @@ export default function BengkelMainPage() {
             <p className='md:text-lg'>Kenapa BengCare?</p>
             <h2 className='text-3xl md:text-5xl font-semibold md:leading-tight'>
               Manajemen bengkel yang salah menghalangi{' '}
-              <span className='text-primary-700'>pertumbuhan bengkel</span> Anda!
+              <span className='text-primary-700'>pertumbuhan bengkel</span>{' '}
+              Anda!
             </h2>
 
             <p className='md:text-lg pt-6'>
-              BengCare hadir untuk menemukan Anda dengan pelanggan baru, dan juga mengoptimalkan bisnis Anda dengan sistem:
+              BengCare hadir untuk menemukan Anda dengan pelanggan baru, dan
+              juga mengoptimalkan bisnis Anda dengan sistem:
             </p>
 
             <ul className='list-disc list-inside md:text-lg'>
@@ -144,22 +163,27 @@ export default function BengkelMainPage() {
       <section className='min-h-[calc(100vh-100px)] layout flex flex-col items-center gap-12 py-20'>
         <div className='text-center space-y-2'>
           <h2 className='text-3xl md:text-4xl font-semibold'>
-            Maksimalkan potensi bisnis Anda dengan <span className='text-primary-500'>BengCare</span>!
+            Maksimalkan potensi bisnis Anda dengan{' '}
+            <span className='text-primary-500'>BengCare</span>!
           </h2>
           <p className='md:text-lg text-gray-800'>
-            Akses pasar digital yang lebih luas, tingkatkan pendapatan dan efisiensi operasional Anda
+            Akses pasar digital yang lebih luas, tingkatkan pendapatan dan
+            efisiensi operasional Anda
           </p>
         </div>
 
         <div className='max-w-4xl rounded-lg overflow-hidden border shadow-md divide-y'>
           <div className='bg-gray-100 p-4 md:p-6'>
-            <h3 className='md:text-lg font-semibold'>Dengan BengCare, Anda dapat</h3>
+            <h3 className='md:text-lg font-semibold'>
+              Dengan BengCare, Anda dapat
+            </h3>
           </div>
 
           <div className='p-6 md:p-8 space-y-6'>
             <h4 className='text-2xl md:text-3xl font-semibold'>
-              Tingkatkan{" "}
-              <span className='text-primary-700'>performa bisnis</span> Anda lewat
+              Tingkatkan{' '}
+              <span className='text-primary-700'>performa bisnis</span> Anda
+              lewat
             </h4>
 
             <ul className='list-disc list-inside md:text-lg'>
@@ -169,7 +193,9 @@ export default function BengkelMainPage() {
             </ul>
 
             <p className='md:text-lg'>
-              Aplikasi BengCare membantu Anda untuk mengurus segala hal bisnis Anda dari bertemu dengan pelanggan hingga manajemen servis, montir, keuangan, dan analisis data bisnis Anda.
+              Aplikasi BengCare membantu Anda untuk mengurus segala hal bisnis
+              Anda dari bertemu dengan pelanggan hingga manajemen servis,
+              montir, keuangan, dan analisis data bisnis Anda.
             </p>
           </div>
         </div>
@@ -179,7 +205,8 @@ export default function BengkelMainPage() {
         <div className='layout max-w-4xl mx-auto space-y-4'>
           <p className='md:text-lg'>Gabung dengan BengCare</p>
           <h2 className='text-3xl md:text-4xl font-semibold'>
-            Kami maksimalkan <span className='text-primary-700'>pendapatan</span> bisnis Anda
+            Kami maksimalkan{' '}
+            <span className='text-primary-700'>pendapatan</span> bisnis Anda
           </h2>
         </div>
       </section>
@@ -215,7 +242,8 @@ export default function BengkelMainPage() {
       <section className='bg-gray-100 py-14'>
         <div className='layout space-y-9 flex flex-col items-center'>
           <h1 className='text-4xl md:text-5xl font-semibold text-center'>
-            Ayo tumbuhkan bisnis Anda dengan <span className='text-primary-500'>BengCare</span>
+            Ayo tumbuhkan bisnis Anda dengan{' '}
+            <span className='text-primary-500'>BengCare</span>
           </h1>
 
           <Link
@@ -233,7 +261,7 @@ export default function BengkelMainPage() {
             Di dukung oleh
           </h3>
           <div className='flex flex-col gap-y-4 md:flex-row items-center justify-evenly'>
-          <div className='w-1/3 flex justify-center'>
+            <div className='w-1/3 flex justify-center'>
               <Image
                 src='/kemendikbud.png'
                 alt='Google Logo'
