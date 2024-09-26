@@ -7,12 +7,12 @@ import { Suspense } from 'react';
 import api from '@/lib/api'; // Ensure your API client is imported correctly
 import { toTitleCase } from '@/lib/util';
 
-interface Image {
+export interface Image {
   image_name: string;
   image_path: string;
 }
 
-interface Bengkel {
+export interface Bengkel {
   id: string;
   name: string;
   email: string;
