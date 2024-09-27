@@ -45,11 +45,11 @@ export default function BengkelMainPage() {
       ],
       media: (
         <iframe
-          width='480'
-          height='270'
-          src='https://www.youtube.com/embed/nCeEQVYyLLk?si=jZ1mCIRPgbGUUYfQ'
+          width='560'
+          height='315'
+          src='https://www.youtube.com/embed/j0BZC5NLZc4?si=b2buFihxC-9qKPkz'
           title='YouTube video player'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share'
           referrerPolicy='strict-origin-when-cross-origin'
           allowFullScreen
           className='border-none w-full rounded-lg shrink-0'
