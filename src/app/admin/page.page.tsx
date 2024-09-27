@@ -22,12 +22,12 @@ export default async function AdminPage() {
       </section>
 
       <ul className='space-y-10'>
-        {bengkels.data.map((props) => (
+        {bengkels.data.map((props, index) => (
           <li
             key={props.id}
             className='space-y-2 p-4 rounded-lg border bg-gray-100'
           >
-            <p className='text-lg font-medium'>{props.name}</p>
+            <p className='text-lg font-medium'>{index+1}. {props.name}</p>
 
             <div className='grid md:grid-cols-2 gap-4 p-4 border rounded-lg shadow-sm bg-white'>
               {Object.entries(props).map(
@@ -39,6 +39,7 @@ export default async function AdminPage() {
                     'images',
                     'list_of_service',
                     'available_vehicle_type',
+                    'is_promise'
                   ].includes(key) && (
                     <DataCard key={key} label={key} content={value} />
                   ),
