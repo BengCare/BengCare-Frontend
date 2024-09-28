@@ -1,9 +1,29 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Bengkel } from '@/app/rahasiabengkeryangtidakbolehdiketahuiolehoranglain-1234/page.page';
 import { baseURL } from '@/lib/api';
 import { ApiReturn } from '@/types/api';
+
+export interface Image {
+  image_name: string;
+  image_path: string;
+}
+
+export interface Bengkel {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  description: string;
+  open_hour: string;
+  close_hour: string;
+  available_vehicle_type: string[];
+  images: Image[];
+  list_of_service: string[];
+  is_promise: boolean;
+  info_from: string;
+}
 
 export default async function AdminPage() {
   const data = await fetch(baseURL + '/bengkel_temp');
