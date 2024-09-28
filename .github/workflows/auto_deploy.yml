@@ -23,6 +23,7 @@ jobs:
           echo "NEXT_PUBLIC_API_DEVELOPMENT_URL=https://api.bengcare.com/api" >> .env
           echo "NEXT_PUBLIC_API_PRODUCTION_URL=https://api.bengcare.com/api" >> .env
           echo "NEXT_PUBLIC_NEXTAUTH_SECRET=nZxUSkhKA1HeATKzpY64oBctSw0A1Y14RSJTheADoDw=" >> .env
+          echo "NEXTAUTH_URL=https://bengcare.com" >> .env
 
       - name: Install pm2
         run: npm install -g pm2
