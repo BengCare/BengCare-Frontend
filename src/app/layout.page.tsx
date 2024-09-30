@@ -33,45 +33,55 @@ export default function RootLayout({
         <NextTopLoader />
         <Toast />
         <nav className='fixed top-0 w-full bg-white h-[100px] shadow-sm z-50'>
-          <div className='layout flex items-center h-full justify-between gap-6'>
-            <Link href='/'>
-              <Image
-                src='/logo-primary500-white.svg'
-                alt='logo'
-                height={48}
-                width={200}
-                className='object-contain'
-              />
-            </Link>
-            <div className='sm:flex items-center gap-4 lg:gap-8 text-black font-medium'>
-              <Link href='/#' className='hidden md:block text-sm md:text-base'>
-                BERANDA
+          <div className='layout h-full'>
+            <div className='flex items-center h-full justify-between gap-6'>
+              <Link href='/'>
+                <Image
+                  src='/logo-primary500-white.svg'
+                  alt='logo'
+                  height={48}
+                  width={200}
+                  className='object-contain'
+                />
               </Link>
-              <Link
-                href='/#tentang-kami'
-                className='hidden md:block text-sm md:text-base'
-              >
-                TENTANG KAMI
-              </Link>
-              <Link
-                href='/#faq'
-                className='hidden md:block text-sm md:text-base'
-              >
-                FAQ
-              </Link>
-              <Link
-                href='/artikel'
-                className='hidden sm:block text-sm md:text-base'
-              >
-                ARTIKEL
-              </Link>
+              <div className='sm:flex items-center gap-4 lg:gap-8 text-black font-medium'>
+                <Link href='/#' className='hidden md:block text-sm md:text-base'>
+                  BERANDA
+                </Link>
+                <Link
+                  href='/#tentang-kami'
+                  className='hidden md:block text-sm md:text-base'
+                >
+                  TENTANG KAMI
+                </Link>
+                <Link
+                  href='/#faq'
+                  className='hidden md:block text-sm md:text-base'
+                >
+                  FAQ
+                </Link>
+                <Link
+                  href='/artikel'
+                  className='hidden sm:block text-sm md:text-base'
+                >
+                  ARTIKEL
+                </Link>
+              </div>
+              <div className='sm:flex items-center gap-4 lg:gap-8 text-black font-medium'>
+                <Link
+                  href='/bengkel'
+                  className='hidden sm:block text-sm md:text-base'
+                >
+                  BENGKEL
+                </Link>
 
-              <Link
-                href='/registrasi-bengkel'
-                className='inline-flex items-center justify-center text-center sm:h-11 text-xs sm:text-base px-2 py-2 bg-primary-700 rounded-lg text-white font-medium hover:bg-primary-700/90'
-              >
-                Daftarkan Bengkel
-              </Link>
+                <Link
+                  href='/registrasi-bengkel'
+                  className='inline-flex items-center justify-center text-center sm:h-11 text-xs sm:text-base px-2 py-2 bg-primary-700 rounded-lg text-white font-medium hover:bg-primary-700/90'
+                >
+                  Daftarkan Bengkel
+                </Link>
+              </div>
             </div>
           </div>
         </nav>
@@ -183,6 +193,6 @@ export default function RootLayout({
           </div>
         </footer>
       </body>
-    </html>
+    </html >
   );
 }

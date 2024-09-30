@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { baseURL } from '@/lib/api';
+import api from '@/lib/api';
 import { ApiReturn } from '@/types/api';
 
 export interface Image {
@@ -26,9 +26,9 @@ export interface Bengkel {
 }
 
 export default async function AdminPage() {
-  const data = await fetch(baseURL + '/bengkel_temp');
-  const bengkels: ApiReturn<Bengkel[]> = await data.json();
-
+  const data = await api.get('/bengkel_temp');
+  const bengkels: ApiReturn<Bengkel[]> = data.data;
+  
   return (
     <main className='layout py-10 space-y-2.5'>
       <section className='flex justify-between'>
