@@ -22,6 +22,13 @@ const nextConfig = {
     ],
   },
 
+  logging: {
+    fetches: {
+      fullUrl: true,
+      hmrRefreshes: true,
+    },
+  },
+
   async headers() {
     return [
       {
