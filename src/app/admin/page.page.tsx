@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import api from '@/lib/api';
+import { baseURL } from '@/lib/api';
 import { ApiReturn } from '@/types/api';
 
 export interface Image {
@@ -25,10 +25,14 @@ export interface Bengkel {
   info_from: string;
 }
 
+export const revalidate = 0;
+
 export default async function AdminPage() {
-  const data = await api.get('/bengkel_temp');
-  const bengkels: ApiReturn<Bengkel[]> = data.data;
-  
+  const data = await fetch(baseURL + '/bengkel_temp', {
+    next: { revalidate: 0 },
+  });
+  const bengkels: ApiReturn<Bengkel[]> = await data.json();
+
   return (
     <main className='layout py-10 space-y-2.5'>
       <section className='flex justify-between'>
@@ -47,7 +51,9 @@ export default async function AdminPage() {
             key={props.id}
             className='space-y-2 p-4 rounded-lg border bg-gray-100'
           >
-            <p className='text-lg font-medium'>{index+1}. {props.name}</p>
+            <p className='text-lg font-medium'>
+              {index + 1}. {props.name}
+            </p>
 
             <div className='grid md:grid-cols-2 gap-4 p-4 border rounded-lg shadow-sm bg-white'>
               {Object.entries(props).map(
@@ -59,7 +65,7 @@ export default async function AdminPage() {
                     'images',
                     'list_of_service',
                     'available_vehicle_type',
-                    'is_promise'
+                    'is_promise',
                   ].includes(key) && (
                     <DataCard key={key} label={key} content={value} />
                   ),
