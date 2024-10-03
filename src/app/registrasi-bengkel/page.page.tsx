@@ -12,6 +12,7 @@ import DropzoneInput, { FileWithPreview } from '@/components/Dropzone';
 import Input from '@/components/Input';
 import Radio from '@/components/Radio';
 import Textarea from '@/components/TextArea';
+import { REGEX } from '@/constant/regex';
 import useMutationToast from '@/hooks/useMutationToast';
 import api from '@/lib/api';
 
@@ -172,6 +173,10 @@ export default function BengkelRegistrationPage() {
             required
             validation={{
               required: 'Email wajib diisi',
+              pattern: {
+                value: REGEX.EMAIL,
+                message: 'Email tidak valid',
+              },
             }}
           />
 
@@ -195,6 +200,11 @@ export default function BengkelRegistrationPage() {
             required
             validation={{
               required: 'Nomor telepon bengkel wajib diisi',
+              pattern: {
+                value: REGEX.PHONE,
+                message:
+                  'Nomor telepon harus dimulai dengan 08 dan terdiri dari 10 hingga 13 angka',
+              },
             }}
           />
 

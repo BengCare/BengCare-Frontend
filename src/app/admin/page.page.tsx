@@ -13,6 +13,7 @@ export interface Bengkel {
   id: string;
   name: string;
   email: string;
+  referral_code?: string;
   phone: string;
   address: string;
   description: string;
@@ -87,7 +88,8 @@ export default async function AdminPage() {
               <div className='space-y-1'>
                 <p className='text-sm text-gray-500'>List of services</p>
                 <ul className='list-inside list-[revert]'>
-                  {props.available_vehicle_type.length > 0 ? (
+                  {props.list_of_service.length > 0 &&
+                  !!props.list_of_service[0] ? (
                     props.list_of_service.map((text, index) => (
                       <li key={index}>{text}</li>
                     ))
