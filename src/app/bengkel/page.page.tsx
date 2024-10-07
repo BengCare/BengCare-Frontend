@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import SupportSection from '@/components/ui/support-section';
+import { COVERS, SUPPORTS } from '@/constant/support';
 import clsxm from '@/lib/clsxm';
 
 export default function BengkelMainPage() {
@@ -255,51 +257,8 @@ export default function BengkelMainPage() {
         </div>
       </section>
 
-      <section className='py-14'>
-        <div className='layout space-y-4'>
-          <h3 className='text-xl font-medium text-center text-gray-500 uppercase'>
-            Di dukung oleh
-          </h3>
-          <div className='flex flex-col gap-y-4 md:flex-row items-center justify-evenly'>
-            <div className='w-1/3 flex justify-center'>
-              <Image
-                src='/kemendikbud.png'
-                alt='Google Logo'
-                width={512}
-                height={300}
-                className='w-40'
-              />
-            </div>
-            <div className='w-1/3 flex justify-center'>
-              <Image
-                src='/goto.png'
-                alt='Goto Logo'
-                width={1000}
-                height={417}
-                className='w-28'
-              />
-            </div>
-            <div className='w-1/3 flex justify-center'>
-              <Image
-                src='/google.png'
-                alt='Google Logo'
-                width={512}
-                height={300}
-                className='w-40'
-              />
-            </div>
-            <div className='w-1/3 flex justify-center'>
-              <Image
-                src='/traveloka.png'
-                alt='Traveloka Logo'
-                width={1350}
-                height={595}
-                className='w-56'
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <SupportSection label='Didukung Oleh' images={SUPPORTS} />
+      <SupportSection label='Pernah Diliput Oleh' images={COVERS} />
     </div>
   );
 }

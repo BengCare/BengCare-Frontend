@@ -182,7 +182,7 @@ export default function BengkelRegistrationPage() {
 
           <Input
             id='name'
-            label='Nama'
+            label='Nama Bengkel'
             placeholder='Masukkan nama bengkel Anda'
             sizes='large'
             required
