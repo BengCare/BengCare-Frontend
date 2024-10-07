@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+import { id } from 'date-fns/locale';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -47,7 +49,11 @@ export default async function PostPage({ params }: PostPageProps) {
 
         <div className='w-[5px] h-[5px] bg-gray-400 rounded-full hidden md:block' />
 
-        <p>{postData.date}</p>
+        <p>
+          {format(new Date(postData.date), 'dd MMMM yyyy', {
+            locale: id,
+          })}
+        </p>
       </div>
 
       <main className='flex gap-10 mt-5 mb-10'>

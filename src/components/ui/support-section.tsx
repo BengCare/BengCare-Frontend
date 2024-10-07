@@ -20,7 +20,7 @@ export default function SupportSection({
         <h3 className='text-xl font-medium text-center text-gray-500 capitalize'>
           {label}
         </h3>
-        <div className='flex flex-col gap-4 md:flex-row justify-evenly'>
+        <div className='flex flex-col gap-x-4 gap-y-6 md:flex-row justify-evenly'>
           {images?.map((img, index) => (
             <div
               key={index}
@@ -29,7 +29,7 @@ export default function SupportSection({
               <Image
                 {...img}
                 alt={img.alt ?? 'Google Logo'}
-                className={clsxm('w-40', img.className)}
+                className={clsxm(img.className)}
               />
             </div>
           ))}

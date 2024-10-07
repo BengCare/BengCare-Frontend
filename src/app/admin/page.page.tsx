@@ -54,7 +54,7 @@ export default async function AdminPage() {
       </section>
 
       <ul className='space-y-10'>
-        {bengkels.data.map((props, index) => (
+        {bengkels.data.reverse().map((props, index) => (
           <li
             key={props.id}
             className='space-y-2 p-4 rounded-lg border bg-gray-100'
