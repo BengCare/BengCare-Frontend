@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+import { id } from 'date-fns/locale';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -48,7 +50,7 @@ export default function Artikel({
                         {params.desc}
                       </p>
                       <p className='text-xs text-gray-400 mt-4'>
-                        {params.date}
+                        {format(params.date, 'dd MMMM yyyy', { locale: id })}
                       </p>
                       <p className='text-xs text-gray-400 mt-1'>
                         Topik: {toTitleCase(params.topics.join(', '))}

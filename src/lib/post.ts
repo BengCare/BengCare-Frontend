@@ -66,12 +66,17 @@ export function getAllPostSlugs(topics: string[]) {
         title: matterResult.data.title as string,
         image: matterResult.data.image as string,
         desc: matterResult.data.desc.slice(0, 550) as string,
-        date: matterResult.data.date as string,
+        date: new Date(matterResult.data.date),
         topics: postTopics,
         score,
       },
     };
   });
+
+  allPosts.sort(
+    (a, b) =>
+      new Date(b.params.date).getTime() - new Date(a.params.date).getTime(),
+  );
 
   if (isFiltered) {
     return allPosts
