@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/Avatar';
 import { baseURL } from '@/lib/api';
 import { ApiReturn } from '@/types/api';
 
@@ -24,6 +25,12 @@ export interface Bengkel {
   list_of_service: string[];
   is_promise: boolean;
   info_from: string;
+  referred_by: {
+    id: string;
+    name: string;
+    email: string;
+    image_url: string;
+  } | null;
 }
 
 export const revalidate = 0;
@@ -67,10 +74,35 @@ export default async function AdminPage() {
                     'list_of_service',
                     'available_vehicle_type',
                     'is_promise',
+                    'referred_by',
                   ].includes(key) && (
                     <DataCard key={key} label={key} content={value} />
                   ),
               )}
+
+              <div className='space-y-1'>
+                <p className='text-sm text-gray-500 capitalize'>Referred By</p>
+                {props.referred_by ? (
+                  <div className='flex items-center gap-2.5'>
+                    <Avatar>
+                      <AvatarImage
+                        src={`https://storage.googleapis.com/bengcare-development/${props.referred_by?.image_url}`}
+                      />
+                      <AvatarFallback>
+                        {props.referred_by.name
+                          .split(' ')
+                          .map((name) => name[0])
+                          .join('')}
+                      </AvatarFallback>
+                    </Avatar>
+                    <p className='font-medium text-gray-800'>
+                      {props.referred_by?.name}
+                    </p>
+                  </div>
+                ) : (
+                  <p className='font-medium text-gray-800'>-</p>
+                )}
+              </div>
 
               <div className='space-y-1'>
                 <p className='text-sm text-gray-500'>Available vehicle type</p>
@@ -131,7 +163,7 @@ export default async function AdminPage() {
 
 type DataCard = {
   label: string;
-  content: boolean | string;
+  content?: boolean | string;
 } & React.ComponentPropsWithoutRef<'div'>;
 
 function DataCard({ label, content, ...rest }: DataCard) {
@@ -140,7 +172,9 @@ function DataCard({ label, content, ...rest }: DataCard) {
       <p className='text-sm text-gray-500 capitalize'>
         {label.split('_').join(' ')}
       </p>
-      <p className='font-medium text-gray-800'>{content.toString() || '-'}</p>
+      <p className='font-medium text-gray-800'>
+        {content ? content.toString() : '-'}
+      </p>
     </div>
   );
 }

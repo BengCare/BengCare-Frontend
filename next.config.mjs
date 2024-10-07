@@ -10,6 +10,7 @@ const nextConfig = {
   pageExtensions: ['page.tsx', 'api.ts', 'page.ts', 'api.tsx'],
 
   images: {
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -18,6 +19,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'storage.googleapis.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
       },
     ],
   },

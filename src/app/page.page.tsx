@@ -4,6 +4,8 @@ import Image from 'next/image';
 
 import Accordion from '@/components/Accordion';
 import SubscriptionForm from '@/components/ui/subscription-form';
+import SupportSection from '@/components/ui/support-section';
+import { COVERS, SUPPORTS } from '@/constant/support';
 
 export default function Home() {
   return (
@@ -128,13 +130,12 @@ export default function Home() {
           <div>
             <h1 className='text-primary-800 font-bold text-[32px]'>UNKEL</h1>
             <p className='text-black text-justify text-sm lg:text-base'>
-              Unkel terinspirasi dari kata Uncle dan Bengkel. Unkel hadir untuk
-              membuat perjalanan Anda di dunia bengkel kendaraan menjadi
-              menyenangkan dan bebas masalah. Dengan senyum lebar dan hati yang
-              besar, Unkel siap membantu Anda memilih bengkel terbaik untuk
-              kendaraan Anda, baik itu untuk perawatan rutin maupun perbaikan
-              kompleks, Unkel selalu siap membantu. Ayo berkendara bersama
-              Unkel!
+              Unkel adalah asisten AI di BengCare yang terinspirasi dari kata
+              &quot;uncle&quot; dan &quot;bengkel&quot;. Dengan senyum lebar dan
+              hati yang besar, Unkel siap menjawab pertanyaan Anda 24/7. Dari
+              rekomendasi bengkel hingga solusi cepat atas masalah kendaraan,
+              Unkel ada untuk Anda tanpa perlu menunggu. Coba konsultasi dengan
+              Unkel sekarang dengan unduh BengCare gratis!
             </p>
           </div>
         </div>
@@ -196,6 +197,9 @@ export default function Home() {
           </p>
         </Accordion>
       </div>
+
+      <SupportSection label='Didukung Oleh' images={SUPPORTS} />
+      <SupportSection label='Pernah Diliput Oleh' images={COVERS} />
     </main>
   );
 }
