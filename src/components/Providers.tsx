@@ -7,6 +7,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
+import { SessionProvider } from 'next-auth/react';
 import React from 'react';
 
 function makeQueryClient() {
@@ -45,7 +46,10 @@ const Providers: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   const queryClient = getQueryClient();
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      {/* for accessing session from client */}
+      <SessionProvider>{children}</SessionProvider>
+    </QueryClientProvider>
   );
 };
 
