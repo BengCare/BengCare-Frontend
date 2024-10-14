@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -38,6 +39,9 @@ export const revalidate = 0;
 export default async function AdminPage() {
   const data = await fetch(baseURL + '/bengkel_temp', {
     next: { revalidate: 0 },
+    headers: {
+      Authorization: `Bearer ${cookies().get('@bengcare/token')?.value}`,
+    },
   });
   const bengkels: ApiReturn<Bengkel[]> = await data.json();
 
