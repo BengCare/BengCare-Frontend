@@ -19,6 +19,7 @@ export default function TagFilter() {
     'konsultasi',
     'teknologi',
     'edukasi',
+    'unik',
   ];
 
   const currentQuery = searchParams.getAll('topics');
@@ -49,7 +50,7 @@ export default function TagFilter() {
             className={clsxm(
               'bg-white text-gray-900 text-sm px-3 py-2 rounded-xl shadow-sm border border-gray-200/70 hover:bg-gray-100 transition',
               currentQuery.includes(query) &&
-                'border-primary-500 text-primary-700 bg-primary-100 hover:bg-primary-100',
+              'border-primary-500 text-primary-700 bg-primary-100 hover:bg-primary-100',
             )}
           >
             {query[0].toUpperCase() + query.slice(1)}
